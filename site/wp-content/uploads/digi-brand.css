@@ -922,3 +922,40 @@ body.digi-page header .elementor-element-64661e4 .elementor-button .elementor-bu
 .dc-exp .dc-panel .dc-panel-head{ display:flex !important; align-items:baseline; gap:12px; flex-wrap:wrap; }
 .dc-exp .dc-panel .dc-panel-head .dc-panel-badge{ display:inline-block !important; margin:0 !important; }
 .dc-exp .dc-panel .dc-panel-head h3{ display:inline !important; }
+
+/* ================================================================
+   Update pass — empower cards, expertise header, panel badge line
+   ================================================================ */
+/* 1) "Our services empower businesses to:" -> clean check-cards */
+.elementor-16 .elementor-element-38ff16a .elementor-widget-icon-list .elementor-icon-list-item{
+  background:#FAF7F3 !important; border:1px solid #efe7dd !important; border-radius:14px !important;
+  padding:16px 20px !important; align-items:center !important; transition:transform .2s ease, border-color .2s ease;
+}
+.elementor-16 .elementor-element-38ff16a .elementor-widget-icon-list .elementor-icon-list-item:hover{
+  transform:translateX(4px); border-color:var(--dc-orange-200) !important;
+}
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-icon{
+  width:34px !important; height:34px !important; border-radius:50% !important; background:var(--dc-grad) !important;
+  display:inline-flex !important; align-items:center; justify-content:center; margin-right:14px !important; flex:0 0 auto;
+}
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-icon i{ color:#fff !important; font-size:15px !important; }
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-text{ font-size:1.18rem !important; font-weight:500 !important; color:#26292b !important; line-height:1.45 !important; }
+.elementor-16 .elementor-element-38ff16a .elementor-widget-spacer .elementor-spacer-inner{ height:12px !important; }
+.elementor-16 .elementor-element-38ff16a h2.elementor-heading-title{ font-size:clamp(2rem,3.6vw,2.8rem) !important; font-weight:700 !important; margin-bottom:22px !important; }
+
+/* 2) "Our expertise" -> big section header */
+.elementor-16 .elementor-element-4b9b857 .elementor-widget-icon-list{ text-align:center; }
+.elementor-16 .elementor-element-4b9b857 .elementor-icon-list-items{ justify-content:center; }
+.elementor-16 .elementor-element-4b9b857 .elementor-icon-list-text{
+  font-size:clamp(2.1rem,4.2vw,3rem) !important; font-weight:700 !important; color:#1f2224 !important;
+  letter-spacing:-.01em; text-transform:none !important;
+}
+.elementor-16 .elementor-element-4b9b857 .elementor-icon-list-icon i{ color:var(--dc-orange-300) !important; font-size:26px !important; }
+
+/* 3) Capability panel: badge + title on the SAME line (inline flow, no stacking) */
+.dc-exp .dc-panel .dc-panel-head{ display:block !important; margin-bottom:4px; }
+.dc-exp .dc-panel .dc-panel-head .dc-panel-badge{
+  display:inline !important; margin:0 10px 0 0 !important; font-size:.74rem !important;
+  letter-spacing:.1em; vertical-align:middle; white-space:nowrap;
+}
+.dc-exp .dc-panel .dc-panel-head h3{ display:inline !important; vertical-align:middle; }
