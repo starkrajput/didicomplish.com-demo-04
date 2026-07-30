@@ -959,3 +959,21 @@ body.digi-page header .elementor-element-64661e4 .elementor-button .elementor-bu
   letter-spacing:.1em; vertical-align:middle; white-space:nowrap;
 }
 .dc-exp .dc-panel .dc-panel-head h3{ display:inline !important; vertical-align:middle; }
+
+/* ================================================================
+   Capability panels — equal content alignment across all 6 cards
+   (icon pinned to top; title area a fixed height so badges/titles
+   line up regardless of length). Plus tighter section spacing.
+   ================================================================ */
+.dc-panel-ico{ margin-bottom:auto !important; }          /* icon pinned to top -> all icons align */
+.dc-panel-in{ justify-content:flex-end !important; padding:24px 22px !important; }
+.dc-panel-head{
+  min-height:4.6rem !important;      /* reserve 3 lines so every badge/title starts at the same Y */
+  line-height:1.25 !important; margin-bottom:0 !important; align-self:stretch;
+}
+.dc-panel-head h3{ line-height:1.25 !important; }
+
+/* section spacing: breathing room under the hero + trim internal gaps */
+.dc-exp{ padding:52px 0 68px !important; }
+.dc-exp .dc-head{ margin-bottom:38px !important; }
+.elementor-16 .elementor-element-38ff16a{ padding-top:34px !important; }
