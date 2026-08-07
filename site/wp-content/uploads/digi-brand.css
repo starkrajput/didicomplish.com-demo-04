@@ -998,3 +998,18 @@ body.digi-page header .elementor-element-64661e4 .elementor-button .elementor-bu
   font-size:.98rem !important; line-height:1.55 !important; color:#dfe3e9 !important;
 }
 .dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{ -webkit-line-clamp:6; min-height:0; }
+
+/* Solutions grouped mega — 4 columns of grouped links */
+header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ grid-template-columns:repeat(4,minmax(0,1fr)) !important; gap:8px 34px !important; }
+.dc-mega-col{ min-width:0; }
+.dc-mega-group{ font-size:.72rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--dc-orange-300); margin:0 0 8px; }
+.dc-mega-col .dc-mega-group:not(:first-child){ margin-top:20px; }
+.dc-mega-col a{ display:block; color:#33373a !important; font-size:.9rem; padding:5px 0; text-decoration:none !important; line-height:1.35; }
+.dc-mega-col a:hover{ color:var(--dc-orange-300) !important; padding-left:4px; transition:padding .15s ease,color .15s ease; }
+
+/* redesign extras */
+.dc-story-p{ font-size:1.12rem !important; line-height:1.72 !important; color:#33373a !important; margin:0 0 18px !important; }
+.dc-oplist li{ font-size:1.1rem !important; padding:10px 0; }
+.dc-story-card{ padding:30px 30px 32px; }
+.dc-story-card p{ font-size:1.06rem !important; line-height:1.65; }
+.dc-diff .dc-card{ background:#FAF7F3; }
