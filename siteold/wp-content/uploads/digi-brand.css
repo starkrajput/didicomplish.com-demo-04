@@ -1,0 +1,1015 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* ============================================================
+   Digicomplish — matches the Beratung template.
+   Home: transparent header (white logo + white nav) over the dark hero.
+   Inner pages (body.digi-page): SOLID white header (scrolls with the page,
+   no fixed bar) with the dark logo and #161616 nav text.
+   ============================================================ */
+
+/* ---------- Home (transparent header): white logo ---------- */
+header .vamtam-sticky-header--transparent-header .elementor-widget-image img{
+  filter:brightness(0) invert(1);
+  transition:filter .2s ease;
+}
+
+/* ---------- Inner pages: solid white header ---------- */
+/* Paint the header section itself white in EVERY state. The theme repaints
+   the sticky bar with --vamtam-sticky-header-bg-color (#2E3238, dark green)
+   once you scroll, which left dark nav text unreadable — force that variable
+   AND the fixed/scrolled variants back to white so the inner-page header
+   stays white with dark text top-to-bottom. */
+body.digi-page{ --vamtam-sticky-header-bg-color:#ffffff !important; }
+body.digi-page header .vamtam-sticky-header,
+body.digi-page header .vamtam-sticky-header--fixed,
+body.digi-page header .vamtam-sticky-header--fixed-shown,
+body.digi-page header .vamtam-sticky-header--transparent-header.vamtam-sticky-header--fixed{
+  background-color:#ffffff !important;
+}
+body.digi-page header .vamtam-sticky-header--spacer{ background-color:#ffffff !important; }
+/* Dark logo (real colours) */
+body.digi-page header .elementor-widget-image img{ filter:none !important; }
+/* Dark nav text / buttons / carets / toggle / icons — template colour */
+body.digi-page header .elementor-item,
+body.digi-page header .vamtam-nav-text,
+body.digi-page header .vamtam-btn-text,
+body.digi-page header .sub-arrow,
+body.digi-page header .elementor-menu-toggle,
+body.digi-page header .elementor-icon i{ color:#161616 !important; }
+body.digi-page header .elementor-icon svg{ fill:#161616 !important; }
+/* logo size + readable dropdown items */
+header .elementor-element-7ad430b img,
+header .elementor-widget-theme-site-logo img,
+header .elementor-widget-image img{
+  height:52px !important; width:auto !important; max-width:none !important;
+}
+@media(max-width:767px){
+  header .elementor-element-7ad430b img,
+  header .elementor-widget-theme-site-logo img,
+  header .elementor-widget-image img{ height:40px !important; }
+}
+header .sub-menu .elementor-sub-item,
+header .sub-menu .vamtam-nav-text{ color:#161616 !important; }
+
+/* ---------- Inner-page banner — matches the Beratung template hero
+     (element bb67810): a full-width section with a background image +
+     dark overlay, the content aligned toward the BOTTOM, an icon-list
+     eyebrow (brand-symbol glyph + label) and a large plain H1.
+     No green pill / no white heading box. ---------- */
+.digi-hero{
+  position:relative !important; overflow:hidden !important;
+  background:linear-gradient(180deg,rgba(26,28,32,.58) 0%,rgba(26,28,32,.86) 100%),
+             url('/wp-content/uploads/2023/06/GettyImages-1185765407.jpg') center/cover no-repeat !important;
+  min-height:0 !important;
+  display:block !important;
+  padding:66px 0 60px !important;   /* tighter — removes the big empty gap above the content */
+}
+.digi-hero::before, .digi-hero::after{ content:none !important; }   /* drop the old green triangles */
+.digi-hero .digi-wrap{ position:relative; z-index:1; width:100%; }
+.digi-hero .digi-crumbs{ color:#c3ccc6 !important; margin-bottom:16px !important; }
+.digi-hero .digi-crumbs a{ color:#e3e9e5 !important; }
+.digi-hero .digi-crumbs a:hover{ color:#FF9B00 !important; }
+/* Eyebrow removed per request (the icon glyph rendered as a stray “✕”). */
+.digi-hero .eyebrow{ display:none !important; }
+.digi-hero h1{
+  color:#ffffff !important; font-weight:400; letter-spacing:-.02em;
+  background:none !important; display:block !important;
+  padding:0 !important; margin:0 !important; max-width:18ch;
+  font-size:clamp(2.4rem,4.6vw,4rem) !important; line-height:1.06 !important;
+}
+.digi-hero p{ color:#cdd4cf !important; margin-top:22px !important; max-width:56ch; }
+
+/* ---------- Buttons: clearly visible (template colours) ---------- */
+.digi-btn{
+  background:#161616 !important; color:#ffffff !important; border:1px solid #161616 !important;
+}
+.digi-btn:hover{ background:#FF9B00 !important; border-color:#FF9B00 !important; color:#ffffff !important; }
+.digi-btn.light{ background:#ffffff !important; color:#161616 !important; border-color:#ffffff !important; }
+.digi-btn.light:hover{ background:#161616 !important; color:#ffffff !important; border-color:#161616 !important; }
+.digi-card a[href]:not(.digi-btn){ color:#161616 !important; }
+
+@media(max-width:960px){
+  .digi-hero{ min-height:360px !important; padding:130px 0 48px !important; }
+  .digi-hero h1{ max-width:100% !important; }
+}
+
+/* ============================================================
+   Client requirement: Montserrat everywhere (text only — icon
+   fonts are left untouched so glyphs keep rendering).
+   Setting the family on <body> makes every span/div/p inherit
+   Montserrat automatically; elements that hard-code Geologica
+   are overridden explicitly below.
+   ============================================================ */
+body,
+h1, h2, h3, h4, h5, h6,
+p, a, li, ul, ol, blockquote, label, small, strong, b, em,
+button, input, textarea, select, table, th, td,
+.elementor-heading-title,
+.elementor-button, .elementor-button-text,
+.elementor-widget-text-editor, .elementor-widget-text-editor *,
+.elementor-widget-container,
+.elementor-item, .elementor-sub-item,
+.vamtam-nav-text, .vamtam-btn-text,
+.digi-hero h1, .digi-hero p, .digi-hero .eyebrow,
+.digi-card, .digi-card *{
+  font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+/* Never override the icon fonts (Font Awesome / eicons / theme icons / icomoon) */
+i[class*="eicon"], i[class*="fa-"], .fa, .fas, .far, .fab, .fal,
+[class^="vamtam-theme-icon"], [class*=" vamtam-theme-icon"],
+.elementor-icon i, .elementor-icon svg, .sub-arrow:before,
+[class*="icon-"]:before, .elementor-item:after, .elementor-item:before{
+  font-family:revert;
+}
+
+/* ============================================================
+   Navbar accent state — driven ONLY by digi-brand.js, which adds
+   the .nav-on-accent class to a header bar when it detects the bar
+   has actually turned green. When it is NOT green, nothing here
+   applies and the header keeps its original colours untouched.
+   ============================================================ */
+.vamtam-sticky-header.nav-on-accent .elementor-item,
+.vamtam-sticky-header.nav-on-accent .vamtam-nav-text,
+.vamtam-sticky-header.nav-on-accent .vamtam-btn-text,
+.vamtam-sticky-header.nav-on-accent .elementor-button,
+.vamtam-sticky-header.nav-on-accent .elementor-button-text,
+.vamtam-sticky-header.nav-on-accent .sub-arrow,
+.vamtam-sticky-header.nav-on-accent .elementor-menu-toggle,
+.vamtam-sticky-header.nav-on-accent .elementor-icon i{
+  color:#ffffff !important;
+}
+.vamtam-sticky-header.nav-on-accent .elementor-icon svg{ fill:#ffffff !important; }
+
+/* Any button digi-brand.js has detected as accent-backgrounded gets white text.
+   (The theme's default is dark text on the green hover fill — client wants white.)
+   Applied per-element so transparent / underline buttons are never touched. */
+.elementor-button.btn-on-accent,
+.elementor-button.btn-on-accent .elementor-button-text,
+.elementor-button.btn-on-accent .vamtam-btn-text,
+.elementor-button.btn-on-accent *{ color:#ffffff !important; }
+.elementor-button.btn-on-accent svg{ fill:#ffffff !important; }
+
+/* ============================================================
+   Header fix (matches reference image 1): on the SOLID white
+   inner-page header the "Contact us" CTA must be a visible dark
+   OUTLINED button — the default white border/white text made it
+   invisible on the white bar (image 2). Home (transparent
+   header over the dark hero) keeps the white outlined button.
+   ============================================================ */
+body.digi-page header .elementor-button,
+body.digi-page header .vamtam-sticky-header--transparent-header .elementor-button{
+  position:relative !important;
+  background:transparent !important;
+  color:#161616 !important;
+  transition:background-color .2s ease, color .2s ease;
+}
+/* Dark text on the white inner-page header */
+body.digi-page header .elementor-button .elementor-button-text,
+body.digi-page header .vamtam-sticky-header--transparent-header .elementor-button .elementor-button-text{
+  color:#161616 !important; position:relative; z-index:1;
+}
+/* Outline drawn as a pseudo-element — the theme's sticky script rewrites the
+   button's own border/box-shadow, but it cannot touch ::after. */
+body.digi-page header .elementor-button::after{
+  content:"" !important; position:absolute !important; inset:0 !important;
+  border:1px solid #161616 !important; border-radius:inherit;
+  pointer-events:none !important; z-index:0; transition:background-color .2s ease;
+}
+/* Hover: fill dark, ALL text/icons white (covers the phone button, whose
+   label is not wrapped in .elementor-button-text and was going dark-on-dark) */
+body.digi-page header .elementor-button:hover::after{ background:#161616 !important; }
+body.digi-page header .elementor-button:hover,
+body.digi-page header .elementor-button:hover .elementor-button-text,
+body.digi-page header .elementor-button:hover .vamtam-btn-text,
+body.digi-page header .elementor-button:hover *{ color:#ffffff !important; }
+body.digi-page header .elementor-button:hover .elementor-button-icon i,
+body.digi-page header .elementor-button:hover svg{ color:#ffffff !important; fill:#ffffff !important; }
+
+/* ============================================================
+   Home hero readability scrim.
+   The template's overlay only darkened one corner, so the white
+   slider text sat straight on the photo (bright patches made it
+   unreadable). Replace it with a charcoal left-to-right scrim so
+   the copy always reads and the hero looks intentional.
+   ============================================================ */
+.elementor-16 .elementor-element.elementor-element-0066be4 > .elementor-background-overlay{
+  background-color:transparent !important;
+  background-image:linear-gradient(90deg,
+      rgba(20,22,26,.88) 0%,
+      rgba(20,22,26,.76) 38%,
+      rgba(20,22,26,.34) 68%,
+      rgba(20,22,26,.14) 100%) !important;
+  opacity:1 !important;
+}
+/* keep the slider above the scrim */
+.elementor-16 .elementor-element.elementor-element-0066be4 .elementor-container{ position:relative; z-index:1; }
+.digi-slider{ position:relative; z-index:2; }
+
+/* ============================================================
+   Home hero slider — mirrors digicomplish.com's rotating hero:
+   three slides advance one by one, and within each slide the
+   eyebrow → heading → button rise in, staggered.
+   ============================================================ */
+.digi-slider{ position:relative; }
+.digi-slide{
+  position:absolute; left:0; top:0; right:0;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .6s ease, visibility .6s;
+}
+.digi-slide.is-active{
+  position:relative; opacity:1; visibility:visible; pointer-events:auto;
+}
+.digi-slide-eyebrow{
+  display:inline-flex; align-items:center; gap:12px;
+  color:#FF9B00; font-size:.82rem; letter-spacing:.16em;
+  text-transform:uppercase; font-weight:500; margin:0 0 18px;
+}
+.digi-slide-eyebrow::before{
+  content:""; display:inline-block; width:28px; height:2px; background:#FF9B00;
+}
+.digi-slide-title{
+  /* !important — the theme's `.elementor-kit-5 h1` rule outranks a single class
+     and would otherwise paint this dark on the dark hero */
+  color:#ffffff !important; font-weight:400; letter-spacing:-.02em; margin:0 0 28px;
+  font-size:clamp(2.1rem,4.4vw,3.7rem); line-height:1.09; max-width:20ch;
+}
+.digi-slide-eyebrow{ color:#FF9B00 !important; }
+.digi-slide-btn{
+  display:inline-block; padding:16px 34px; border:1px solid #ffffff;
+  color:#ffffff !important; text-decoration:none; font-size:.95rem;
+  transition:background-color .25s ease, border-color .25s ease;
+}
+.digi-slide-btn:hover{ background:#FF9B00; border-color:#FF9B00; color:#ffffff !important; }
+/* staggered "one by one" entrance */
+.digi-slide.is-active .digi-slide-eyebrow{ animation:digiRise .6s .05s both; }
+.digi-slide.is-active .digi-slide-title  { animation:digiRise .6s .22s both; }
+.digi-slide.is-active .digi-slide-btn    { animation:digiRise .6s .40s both; }
+@keyframes digiRise{ from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:none; } }
+.digi-slider-dots{ display:flex; gap:10px; margin-top:36px; }
+.digi-slider-dots button{
+  width:30px; height:3px; padding:0; border:0; cursor:pointer;
+  background:rgba(255,255,255,.35); transition:background-color .25s ease;
+}
+.digi-slider-dots button.is-active{ background:#FF9B00; }
+@media(max-width:767px){
+  .digi-slide-title{ max-width:100%; }
+  .digi-slide-btn{ padding:14px 26px; }
+}
+
+/* ============================================================
+   Home "Solutions / Our Expertise / Career" trio — same content
+   as digicomplish.com, rendered in OUR site's design language
+   (white cards, brand-green accents, dark headings).
+   ============================================================ */
+.digi-trio-section{ padding:0 0 96px; }
+/* The Elementor container is display:flex, so the grid would otherwise be a
+   flex item sized to its content and sit flush left. Make it fill the
+   container and share the same 30px side padding as the rest of the page
+   so the cards line up with the headings above them. */
+.digi-trio-section > .elementor-container{ margin-left:auto; margin-right:auto; }
+.digi-trio{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:30px;
+  flex:1 1 100%; width:100%; box-sizing:border-box;
+  margin-left:auto; margin-right:auto;
+}
+/* Above the 1280px container width the theme's content sits flush with the
+   container edge; below it the content is inset 30px. Mirror that exactly so
+   the cards always line up with the headings above them. */
+@media(max-width:1280px){
+  .digi-trio{ padding-left:30px; padding-right:30px; }
+}
+.digi-trio-card{
+  display:flex; flex-direction:column; background:#ffffff;
+  border:1px solid rgba(0,0,0,.09); text-decoration:none !important;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.digi-trio-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.22);
+  border-color:#FF9B00;
+}
+.digi-trio-head{ display:block; padding:26px 24px 20px; text-align:center; }
+.digi-trio-eyebrow{
+  display:block; color:#FF9B00 !important; font-size:.76rem; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; margin-bottom:10px;
+}
+.digi-trio-title{
+  display:block; color:#161616 !important; font-size:1.35rem;
+  font-weight:500; line-height:1.25;
+}
+.digi-trio-media{ display:block; overflow:hidden; }
+.digi-trio-media img{
+  display:block; width:100%; height:210px; object-fit:cover;
+  transition:transform .5s ease;
+}
+.digi-trio-card:hover .digi-trio-media img{ transform:scale(1.05); }
+.digi-trio-link{
+  display:block; padding:20px 24px 24px; text-align:center;
+  color:#161616 !important; font-weight:600; font-size:.95rem;
+  position:relative;
+}
+.digi-trio-link::after{
+  content:""; display:block; width:28px; height:2px; background:#FF9B00;
+  margin:9px auto 0; transition:width .25s ease;
+}
+.digi-trio-card:hover .digi-trio-link::after{ width:64px; }
+@media(max-width:1024px){ .digi-trio{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:767px){
+  .digi-trio{ grid-template-columns:1fr; gap:22px; }
+  .digi-trio-section{ padding-bottom:64px; }
+  .digi-trio-media img{ height:190px; }
+}
+
+/* ============================================================
+   Tinted content boxes (Talent Fulfillment page) — soft brand
+   tint instead of plain white, matching the reference design.
+   ============================================================ */
+.digi-tint .digi-card{
+  background:#FDE3C4 !important;
+  border:1px solid rgba(255,155,0,.30) !important;
+  border-radius:10px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.digi-tint .digi-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 26px 52px -32px rgba(150,90,0,.35);
+  border-color:rgba(255,155,0,.65) !important;
+}
+.digi-tint .digi-card h3{ color:#161616 !important; }
+.digi-tint .digi-card p{ color:#4a4033 !important; }
+.digi-tint .digi-card .num{ color:#F08A00 !important; }
+
+/* ============================================================
+   Home "Build the Next Phase of Enterprise Capability" band —
+   supporting copy + the two CTAs, matching the reference image
+   (solid orange primary, solid white secondary on the dark band).
+   ============================================================ */
+.digi-cta-extra{ margin-top:18px; }
+.digi-cta-lead{
+  color:#e8ecf2 !important; margin:0 0 28px; max-width:62ch;
+  font-size:1.02rem; line-height:1.62;
+}
+.digi-cta-actions{ display:flex; flex-wrap:wrap; gap:18px; }
+.digi-cta-btn{
+  display:inline-block; padding:17px 34px; text-decoration:none !important;
+  font-weight:600; font-size:.98rem; line-height:1; border:1px solid transparent;
+  transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .2s ease;
+}
+.digi-cta-btn.primary{ background:#F5A000; color:#ffffff !important; border-color:#F5A000; }
+.digi-cta-btn.primary:hover{ background:#d98c00; border-color:#d98c00; color:#ffffff !important; transform:translateY(-2px); }
+.digi-cta-btn.light{ background:#ffffff; color:#161616 !important; border-color:#ffffff; }
+.digi-cta-btn.light:hover{ background:transparent; color:#ffffff !important; border-color:#ffffff; transform:translateY(-2px); }
+@media(max-width:767px){
+  .digi-cta-actions{ gap:12px; }
+  .digi-cta-btn{ padding:15px 24px; font-size:.92rem; }
+  .digi-cta-lead{ font-size:.98rem; }
+}
+
+/* ============================================================
+   Sticky navbar — always pinned to the top.
+   The theme hides the fixed bar on scroll-down via
+   `.vamtam-sticky-header--fixed-hidden { transform:translateY(-100%) }`.
+   Neutralise that so the navbar genuinely sticks, and make sure it
+   always has a solid background + sits above page content.
+   ============================================================ */
+body:not(.elementor-editor-active) header .vamtam-sticky-header.vamtam-sticky-header--fixed-hidden,
+body:not(.elementor-editor-active) header .vamtam-sticky-header.vamtam-sticky-header--fixed{
+  transform:none !important;
+}
+header .vamtam-sticky-header.vamtam-sticky-header--fixed{
+  position:fixed !important; top:0 !important; left:0; right:0;
+  z-index:1000 !important;
+  box-shadow:0 6px 24px -14px rgba(0,0,0,.28);
+}
+/* the spacer keeps page content from sliding under the fixed bar */
+header .vamtam-sticky-header--spacer{ visibility:hidden; }
+
+/* ============================================================
+   Solutions MEGA-MENU (hover) — wide panel with a 2-column item
+   grid + a featured card, in the NLB-style layout.
+   The theme's smartmenus script still handles show/hide; this only
+   restyles the panel, so the existing open/close behaviour is kept.
+   ============================================================ */
+header .elementor-nav-menu > li.menu-item-has-children{ position:static !important; }
+header ul.sub-menu.digi-mega{
+  left:50% !important; right:auto !important;
+  transform:translateX(-50%);
+  width:min(1260px, calc(100vw - 48px)) !important;
+  max-width:none !important; min-width:0 !important;
+  background:#ffffff !important;
+  border:0 !important; border-radius:0 !important;
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.28) !important;
+  padding:0 !important; margin-top:0 !important;
+}
+header ul.sub-menu.digi-mega > li.digi-mega-li{
+  display:block !important; width:100% !important; background:none !important;
+}
+/* The theme's sub-menu CSS sets white-space:nowrap, which makes each item's
+   min-content enormous and blows the 1fr tracks far past the panel width —
+   force normal wrapping and use minmax(0,1fr) so tracks can actually shrink. */
+header ul.sub-menu.digi-mega,
+header ul.sub-menu.digi-mega *{ white-space:normal !important; }
+.digi-mega-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) 340px;
+  gap:40px 64px; padding:48px 56px 52px;
+}
+.digi-mega-grid{
+  grid-column:1 / 3; min-width:0;
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:44px 64px;               /* roomier: clear separation between options */
+  grid-auto-rows:1fr;          /* equal row heights -> even vertical rhythm */
+  align-items:stretch;
+}
+.digi-mega-item{
+  display:block; text-decoration:none !important; padding:0 !important;
+  background:none !important; line-height:1.45;
+  align-self:start;            /* every item's text starts on the same baseline */
+}
+/* reserve two lines for every description so all cells match and the
+   columns line up instead of stepping unevenly */
+.digi-mega-item .d{ min-height:2.55em; }
+.digi-mega-item .t{
+  display:block; color:#161616 !important; font-size:1.02rem; font-weight:600;
+  margin-bottom:9px; font-size:1.06rem; transition:color .2s ease;
+}
+.digi-mega-item .d{ display:block; color:#5c6067 !important; font-size:.95rem; line-height:1.5; }
+.digi-mega-item:hover .t{ color:#FF9B00 !important; }
+/* featured card */
+.digi-mega-feature{ border-left:1px solid #ececec; padding-left:52px; }
+.digi-mega-thumb{ display:block; overflow:hidden; background:#23262B; }
+.digi-mega-thumb img{ display:block; width:100%; height:180px; object-fit:cover; }
+.digi-mega-cap{
+  color:#161616 !important; font-size:.98rem; font-weight:600;
+  line-height:1.45; margin:18px 0 20px;
+}
+.digi-mega-link{
+  display:inline-flex; align-items:center; gap:12px;
+  color:#161616 !important; font-weight:600; font-size:.94rem;
+  text-decoration:none !important;
+}
+.digi-mega-link .arw{
+  width:36px; height:36px; border-radius:50%; background:#FF9B00; color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:transform .2s ease;
+}
+.digi-mega-link:hover .arw{ transform:translateX(4px); }
+/* stack on tablet / mobile where the menu becomes a drawer */
+@media(max-width:1024px){
+  header ul.sub-menu.digi-mega{
+    left:0 !important; transform:none; width:100% !important;
+    box-shadow:none !important;
+  }
+  .digi-mega-inner{ grid-template-columns:1fr; gap:22px; padding:18px 20px 24px; }
+  .digi-mega-grid{ grid-column:auto; grid-template-columns:1fr; gap:18px; }
+  .digi-mega-feature{ border-left:0; padding-left:0; border-top:1px solid #ececec; padding-top:20px; }
+  .digi-mega-thumb img{ height:150px; }
+}
+
+/* ============================================================
+   Home: stats band + trio cards (self-contained so they work on
+   the Elementor home template, which has no .digi-wrap styles).
+   Charcoal band + orange accents.
+   ============================================================ */
+.digi-band-wrap{ width:100%; max-width:1280px; margin:0 auto; padding:0 30px; box-sizing:border-box; }
+.digi-statband{ background:#23262B; padding:66px 0; }
+.digi-statgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.digi-statitem{ text-align:center; }
+.digi-statitem .digi-count{
+  color:#FF9B00 !important; font-weight:600; line-height:1;
+  font-size:clamp(2.6rem,5vw,3.9rem); letter-spacing:-.02em;
+}
+.digi-statlbl{
+  color:#d6d9de; margin-top:12px; font-size:.82rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; line-height:1.5;
+}
+.digi-triowrap{ padding:84px 0 96px; background:#ffffff; }
+@media(max-width:1024px){ .digi-statgrid{ grid-template-columns:1fr; gap:38px; } }
+@media(max-width:767px){
+  .digi-statband{ padding:52px 0; }
+  .digi-triowrap{ padding:58px 0 64px; }
+  .digi-band-wrap{ padding:0 20px; }
+}
+
+/* ============================================================
+   Legal pages (Privacy Policy / Terms of Use) — readable measure
+   and clear section rhythm.
+   ============================================================ */
+.digi-legal{ max-width:860px; }
+.digi-legal .digi-lead{ margin-bottom:34px; }
+.digi-legal h2{
+  font-size:clamp(1.25rem,2.2vw,1.6rem); font-weight:500; line-height:1.25;
+  margin:38px 0 12px; color:#161616;
+}
+.digi-legal h2:first-of-type{ margin-top:0; }
+.digi-legal p{ color:#3b3f3b; line-height:1.75; margin:0 0 14px; }
+.digi-legal a{ color:#161616; border-bottom:1px solid #FF9B00; }
+.digi-legal a:hover{ color:#FF9B00; }
+.digi-legal .digi-list{ margin:6px 0 14px; }
+.digi-legal .digi-list li{ margin-bottom:9px; line-height:1.6; }
+
+/* ============================================================
+   Contact page — "Find us" map band, sitting ABOVE the form.
+   Dark world-map backdrop with the live Google map floating on
+   top as a rounded, shadowed card + an address plate.
+   ============================================================ */
+.digi-mapband{
+  position:relative; overflow:hidden;
+  background:#0d0f12 url('/worldmap-bg.jpg') center/cover no-repeat;
+  padding:84px 0 90px;
+}
+.digi-mapband::before{           /* darken + tint so the card pops */
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(10,12,15,.82) 0%,rgba(10,12,15,.90) 100%);
+}
+.digi-mapband .digi-wrap{ position:relative; z-index:1; }
+.digi-mapband-head{ text-align:center; margin-bottom:38px; }
+.digi-mapband-head .digi-eyebrow{ color:#FF9B00 !important; }
+.digi-mapband-head h2{
+  color:#ffffff !important; margin:10px 0 0; font-weight:400;
+  font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.12;
+}
+.digi-map-frame{
+  position:relative; border-radius:16px; overflow:hidden;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.09);
+}
+.digi-map-frame iframe{
+  width:100%; height:480px; border:0; display:block;
+  filter:grayscale(.25) contrast(1.03);
+}
+/* floating address plate */
+.digi-map-card{
+  position:absolute; left:28px; bottom:28px; z-index:2;
+  background:#ffffff; border-radius:12px; padding:22px 24px; max-width:330px;
+  box-shadow:0 24px 50px -26px rgba(0,0,0,.55);
+  display:flex; flex-direction:column; gap:6px;
+}
+.digi-map-card-eyebrow{
+  color:#FF9B00; font-size:.72rem; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase;
+}
+.digi-map-card strong{ color:#161616; font-size:1.06rem; font-weight:600; }
+.digi-map-card-addr{ color:#5f635e; font-size:.92rem; line-height:1.55; }
+.digi-map-card-link{
+  margin-top:8px; color:#161616 !important; font-weight:600; font-size:.9rem;
+  text-decoration:none !important; align-self:flex-start;
+  border-bottom:2px solid #FF9B00; padding-bottom:2px; transition:color .2s ease;
+}
+.digi-map-card-link:hover{ color:#FF9B00 !important; }
+@media(max-width:960px){
+  .digi-mapband{ padding:60px 0 64px; }
+  .digi-map-frame iframe{ height:380px; }
+  .digi-map-card{ left:16px; right:16px; bottom:16px; max-width:none; padding:18px 20px; }
+}
+
+/* ================================================================
+   DIGICOMPLISH — deck-aligned palette, typography scale (NLB-style,
+   Montserrat), orange nav CTA, and the four "story" sections.
+   ================================================================ */
+:root{
+  --dc-orange-100:#FFAF14; --dc-orange-200:#FA961E;
+  --dc-orange-300:#F4761D; --dc-orange-400:#F0541E;
+  --dc-logo-orange:#FF9A00; --dc-text:#282828; --dc-text-dark:#141A25;
+  --dc-grad:linear-gradient(135deg,#FFAF14 0%,#FA961E 33%,#F4761D 66%,#F0541E 100%);
+}
+
+/* ---------- Nav "Contact us" CTA -> solid orange ---------- */
+header .elementor-element-64661e4 .elementor-button,
+body.digi-page header .elementor-element-64661e4 .elementor-button{
+  background:var(--dc-logo-orange) !important; border:1px solid var(--dc-logo-orange) !important;
+  color:#fff !important;
+}
+header .elementor-element-64661e4 .elementor-button::after{ display:none !important; }
+header .elementor-element-64661e4 .elementor-button .elementor-button-text,
+body.digi-page header .elementor-element-64661e4 .elementor-button .elementor-button-text{ color:#fff !important; }
+header .elementor-element-64661e4 .elementor-button:hover,
+body.digi-page header .elementor-element-64661e4 .elementor-button:hover{
+  background:var(--dc-orange-300) !important; border-color:var(--dc-orange-300) !important;
+}
+body.digi-page header .elementor-element-64661e4 .elementor-button:hover .elementor-button-text{ color:#fff !important; }
+
+/* ---------- Typography scale (Montserrat, NLB metrics) ---------- */
+.digi-eyebrow, .digi-slide-eyebrow, .digi-trio-eyebrow, .dc-eyebrow{
+  font-weight:600 !important; font-size:12px !important; line-height:1.2 !important;
+  letter-spacing:.08em !important; text-transform:uppercase !important; font-size:12.5px !important;
+}
+.dc-story h2, .digi-statband + * h2, .dc-h2{
+  font-weight:700 !important; line-height:1.15 !important;
+  font-size:clamp(32px,4.4vw,48px) !important;
+}
+.dc-card-title{ font-weight:500 !important; font-size:clamp(21px,2vw,26px) !important; line-height:1.4 !important; }
+.dc-icard-title{ font-weight:600 !important; font-size:clamp(17px,1.6vw,19px) !important; line-height:1.25 !important; }
+.dc-body-sm{ font-weight:400 !important; font-size:clamp(14px,1.1vw,15px) !important; line-height:1.62 !important; letter-spacing:.2px; }
+.dc-story p{ font-weight:400; font-size:16.5px; line-height:1.62; }
+header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
+  font-weight:600 !important; font-size:15.5px !important; letter-spacing:.01em !important;
+}
+
+/* ---------- Story sections ---------- */
+.dc-story{ background:#fff; color:var(--dc-text); }
+.dc-wrap{ width:100%; max-width:1200px; margin:0 auto; padding:0 30px; box-sizing:border-box; }
+.dc-section{ padding:84px 0; }
+.dc-section.alt{ background:#FAF7F3; }
+.dc-head{ max-width:760px; margin:0 auto 52px; text-align:center; }
+.dc-head .dc-eyebrow{ display:inline-block; color:var(--dc-orange-300); margin-bottom:14px; }
+.dc-head h2{ margin:0 0 14px; color:var(--dc-text); }
+.dc-head h2 b{ color:var(--dc-orange-400); font-weight:700; }
+.dc-head p{ color:#54585a; margin:0; font-size:1.12rem; line-height:1.6; }
+.dc-bar{ display:block; width:46px; height:4px; background:var(--dc-grad); border-radius:3px; margin:0 auto 22px; }
+
+.dc-grid{ display:grid; gap:28px; }
+.dc-2{ grid-template-columns:repeat(2,1fr); }
+.dc-3{ grid-template-columns:repeat(3,1fr); }
+.dc-4{ grid-template-columns:repeat(4,1fr); }
+
+/* Style-A card: solid orange circle icon + copy */
+.dc-card{ background:#fff; border:1px solid #efe7dd; border-radius:16px; padding:34px 30px; transition:transform .25s ease, box-shadow .25s ease; }
+.dc-card:hover{ transform:translateY(-6px); box-shadow:0 30px 60px -34px rgba(180,90,10,.28); }
+.dc-ico{ width:60px; height:60px; border-radius:50%; display:grid; place-items:center; background:var(--dc-orange-100); margin-bottom:20px; }
+.dc-ico svg{ width:30px; height:30px; stroke:#fff; fill:none; stroke-width:1.8; }
+.dc-card .dc-card-title{ margin:0 0 10px; color:var(--dc-text); }
+.dc-card p{ margin:0; color:#54585a; font-size:1.02rem; line-height:1.68; }
+
+/* Why-Us numbered 4-color pattern */
+.dc-why{ counter-reset:dcwhy; }
+.dc-why .dc-item{ position:relative; padding-top:8px; }
+.dc-badge{ width:58px; height:58px; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:800; font-size:1.25rem; margin-bottom:18px; }
+.dc-why .dc-item:nth-child(1) .dc-badge{ background:var(--dc-orange-100); }
+.dc-why .dc-item:nth-child(2) .dc-badge{ background:var(--dc-orange-200); }
+.dc-why .dc-item:nth-child(3) .dc-badge{ background:var(--dc-orange-300); }
+.dc-why .dc-item:nth-child(4) .dc-badge{ background:var(--dc-orange-400); }
+.dc-item h3{ font-weight:600; font-size:1.2rem; margin:0 0 10px; color:var(--dc-text); }
+.dc-item p{ margin:0; color:#54585a; font-size:1.02rem; line-height:1.62; }
+
+/* Icon-grid component (outline icons) */
+.dc-icard{ text-align:left; padding:26px 24px; border:1px solid #efe7dd; border-radius:14px; background:#fff; transition:border-color .25s ease, transform .25s ease; }
+.dc-icard:hover{ border-color:var(--dc-orange-200); transform:translateY(-4px); }
+.dc-icard svg{ width:34px; height:34px; stroke:var(--dc-orange-300); fill:none; stroke-width:1.8; margin-bottom:16px; }
+.dc-icard .dc-icard-title{ margin:0 0 8px; color:var(--dc-text); }
+.dc-icard p{ margin:0; color:#6a6f6a; }
+
+/* Case-study stat highlight */
+.dc-stats-strip{ background:var(--dc-grad); border-radius:20px; padding:52px 40px; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; text-align:center; }
+.dc-stat .n{ font-weight:800; font-size:clamp(2.4rem,4.6vw,3.4rem); color:#fff; line-height:1; }
+.dc-stat .l{ color:rgba(255,255,255,.92); margin-top:10px; font-weight:500; font-size:.92rem; letter-spacing:.04em; }
+
+@media(max-width:1024px){ .dc-4{ grid-template-columns:repeat(2,1fr); } .dc-3{ grid-template-columns:1fr; } }
+@media(max-width:767px){
+  .dc-section{ padding:56px 0; }
+  .dc-2,.dc-4{ grid-template-columns:1fr; }
+  .dc-stats-strip{ grid-template-columns:1fr; gap:24px; padding:38px 26px; }
+}
+
+/* ================================================================
+   Readability pass 2 — larger, slightly heavier, higher-contrast
+   body/card copy across the home components + new capability grid.
+   ================================================================ */
+/* Trio cards */
+.digi-trio-eyebrow{ font-size:.86rem !important; font-weight:700 !important; letter-spacing:.14em !important; }
+.digi-trio-title{ font-size:1.5rem !important; font-weight:600 !important; line-height:1.28 !important; }
+.digi-trio-link{ font-size:1.06rem !important; font-weight:600 !important; }
+
+/* Story cards / approach / why / case — bigger & darker for visibility */
+.dc-card .dc-card-title{ font-size:1.32rem !important; font-weight:600 !important; }
+.dc-card p{ font-size:1.08rem !important; color:#3f4345 !important; line-height:1.7 !important; }
+.dc-item h3{ font-size:1.24rem !important; font-weight:700 !important; }
+.dc-item p{ font-size:1.06rem !important; color:#3f4345 !important; line-height:1.68 !important; }
+.dc-icard .dc-icard-title{ font-size:1.18rem !important; font-weight:600 !important; }
+.dc-icard p, .dc-body-sm{ font-size:1.02rem !important; font-weight:400 !important; color:#44484a !important; line-height:1.65 !important; }
+.dc-head p{ font-size:1.2rem !important; color:#44484a !important; }
+.dc-badge{ font-size:1.4rem !important; }
+.dc-stat .l{ font-size:1rem !important; font-weight:600 !important; }
+
+/* Home elementor body copy (values, success-story excerpts) — nudge up */
+.elementor-16 .elementor-widget-text-editor{ font-size:1.06rem !important; font-weight:400 !important; color:#44484a !important; line-height:1.66 !important; }
+.elementor-16 h6.elementor-heading-title{ font-size:1.24rem !important; font-weight:600 !important; }
+.elementor-16 .elementor-icon-list-text{ font-size:1.06rem !important; }
+
+/* ================================================================
+   NLB-style capability grid — 3x3 dark cards, orange icon + arrow.
+   ================================================================ */
+.dc-caps{ background:#14161A; color:#fff; padding:88px 0; }
+.dc-caps .dc-head h2{ color:#fff; }
+.dc-caps .dc-head h2 b{ color:var(--dc-orange-100); }
+.dc-caps .dc-head p{ color:#c4c8cf !important; }
+.dc-caps .dc-eyebrow{ color:var(--dc-orange-100) !important; }
+.dc-caps-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.dc-cap{
+  position:relative; display:block; text-decoration:none !important;
+  background:#1D2026; border:1px solid #2b2f37; border-radius:16px;
+  padding:30px 28px 26px; transition:transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.dc-cap:hover{ transform:translateY(-6px); border-color:var(--dc-orange-200); background:#22262e; }
+.dc-cap-ico{
+  width:56px; height:56px; border-radius:14px; display:grid; place-items:center;
+  background:var(--dc-grad); margin-bottom:20px;
+}
+.dc-cap-ico svg{ width:28px; height:28px; stroke:#fff; fill:none; stroke-width:1.8; }
+.dc-cap h3{ color:#fff !important; font-size:1.22rem !important; font-weight:600 !important; margin:0 0 10px; line-height:1.3; }
+.dc-cap p{ color:#aeb4bd !important; font-size:1rem !important; line-height:1.6; margin:0 0 20px; }
+.dc-cap-arw{
+  width:40px; height:40px; border-radius:50%; border:1px solid #3a3f48;
+  display:grid; place-items:center; color:#fff; transition:background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.dc-cap-arw svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; }
+.dc-cap:hover .dc-cap-arw{ background:var(--dc-orange-200); border-color:var(--dc-orange-200); transform:translateX(4px); }
+@media(max-width:1024px){ .dc-caps-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:767px){ .dc-caps{ padding:58px 0; } .dc-caps-grid{ grid-template-columns:1fr; } }
+
+/* ================================================================
+   Expertise / story text — bigger & bolder for readability
+   ================================================================ */
+.elementor-16 .elementor-icon-box-description{
+  font-size:1.12rem !important; font-weight:400 !important; color:#3c4042 !important; line-height:1.72 !important;
+}
+.elementor-16 .elementor-icon-box-title, .elementor-16 .elementor-icon-box-title a{
+  font-size:1.35rem !important; font-weight:600 !important; color:#1f2224 !important;
+}
+.elementor-16 .elementor-widget-text-editor{
+  font-size:1.16rem !important; font-weight:500 !important; color:#33373a !important; line-height:1.72 !important;
+}
+.dc-card p, .dc-item p{ font-weight:400 !important; }
+.dc-card .dc-card-title{ font-weight:700 !important; }
+
+/* ================================================================
+   "Empowering Enterprises" — 6 expanding glass panels.
+   Reversed reveal: each panel shows its frosted-glass card by
+   default; on hover the panel EXPANDS, the glass clears to the
+   full vivid image, and the title rises in. Neighbours contract.
+   Whole section sits on a fixed background image behind glass.
+   ================================================================ */
+.dc-exp{ position:relative; overflow:hidden; padding:88px 0; background:#0f1114; }
+.dc-exp-bg{ position:absolute; inset:0; background:url('/wp-content/uploads/2023/07/GettyImages-1277288373.jpg') center/cover no-repeat; opacity:.22; }
+.dc-exp-bg::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(15,17,20,.78),rgba(15,17,20,.92)); }
+.dc-exp .dc-wrap{ position:relative; z-index:1; }
+.dc-exp .dc-head h2{ color:#fff; } .dc-exp .dc-head h2 b{ color:var(--dc-orange-100); }
+.dc-exp .dc-head p{ color:#c6cad1 !important; } .dc-exp .dc-eyebrow{ color:var(--dc-orange-100) !important; }
+
+.dc-exp-row{ display:flex; gap:16px; height:460px; }
+.dc-panel{
+  position:relative; flex:1 1 0; min-width:0; border-radius:16px; overflow:hidden;
+  cursor:pointer; text-decoration:none !important; isolation:isolate;
+  transition:flex-grow .6s cubic-bezier(.4,.08,.2,1);
+  box-shadow:0 24px 50px -26px rgba(0,0,0,.7);
+}
+.dc-panel img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  filter:grayscale(.35) brightness(.6);
+  transition:transform .8s cubic-bezier(.4,.08,.2,1), filter .6s ease;
+}
+/* frosted glass — visible by default, clears on hover (the "reverse") */
+.dc-glass{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg,rgba(20,22,28,.30) 0%,rgba(20,22,28,.82) 100%);
+  -webkit-backdrop-filter:blur(4px) saturate(1.1); backdrop-filter:blur(4px) saturate(1.1);
+  transition:opacity .55s ease, backdrop-filter .55s ease;
+}
+.dc-panel-in{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:flex-end; padding:26px 24px; }
+.dc-panel-ico{ width:48px; height:48px; border-radius:12px; display:grid; place-items:center; background:var(--dc-grad); margin-bottom:auto; }
+.dc-panel-ico svg{ width:24px; height:24px; stroke:#fff; fill:none; stroke-width:1.9; }
+.dc-panel h3{
+  color:#fff !important; font-weight:700 !important; margin:0; line-height:1.2;
+  font-size:1.28rem !important; letter-spacing:-.01em;
+}
+.dc-panel p{
+  color:#dfe3e9 !important; margin:12px 0 0; font-size:1.02rem !important; line-height:1.55;
+  max-height:0; opacity:0; overflow:hidden;
+  transition:max-height .5s ease, opacity .45s ease, margin .5s ease;
+}
+.dc-panel .dc-panel-badge{ display:block; color:var(--dc-orange-100); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; opacity:.9; }
+
+/* expanded state (hover / focus) */
+.dc-panel:hover, .dc-panel:focus-visible{ flex-grow:3.4; }
+.dc-panel:hover img, .dc-panel:focus-visible img{ filter:none; transform:scale(1.06); }
+.dc-panel:hover .dc-glass, .dc-panel:focus-visible .dc-glass{ opacity:0; -webkit-backdrop-filter:none; backdrop-filter:none; }
+/* keep the expanded title legible over the now-bright image */
+.dc-panel:hover .dc-panel-in, .dc-panel:focus-visible .dc-panel-in{ background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.62) 100%); }
+.dc-panel:hover h3, .dc-panel:focus-visible h3{ font-size:1.6rem !important; }
+.dc-panel:hover p, .dc-panel:focus-visible p{ max-height:120px; opacity:1; margin-top:12px; }
+
+@media(max-width:900px){
+  .dc-exp-row{ flex-direction:column; height:auto; }
+  .dc-panel{ flex:none; height:180px; }
+  .dc-panel:hover, .dc-panel:focus-visible{ height:280px; flex-grow:0; }
+  .dc-panel p{ font-size:.98rem !important; }
+}
+
+/* ================================================================
+   Hero video backgrounds — one clip per slide, advancing on the
+   video's own length (JS-synced). Only the active clip plays.
+   ================================================================ */
+.digi-hero-videos{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.digi-hero-vid{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .7s ease; }
+.digi-hero-vid.is-active{ opacity:1; }
+.digi-slide-dur{ display:inline-block; margin-left:16px; color:#fff; font-size:.92rem; font-weight:600; letter-spacing:.03em; opacity:.9; vertical-align:middle; }
+.digi-slide-dur::before{ content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--dc-orange-100); margin-right:8px; vertical-align:middle; animation:dcPulse 1.6s ease-in-out infinite; }
+@keyframes dcPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.5); opacity:.5; } }
+.digi-slider-progress{ position:relative; height:3px; max-width:340px; margin-top:24px; background:rgba(255,255,255,.24); border-radius:2px; overflow:hidden; }
+.digi-slider-progress > span{ position:absolute; left:0; top:0; height:100%; width:0; background:var(--dc-orange-100); }
+
+/* ================================================================
+   Update pass — nav mega, hero spacing, panels, services, mobile,
+   colour rules, contact map.
+   ================================================================ */
+
+/* 1) Mega dropdowns: clean stacked/justified items + ALWAYS below the
+      navbar bar (bar sits on top, box opens under it). */
+header .vamtam-sticky-header{ z-index:1000 !important; }
+header ul.sub-menu.digi-mega{ z-index:999 !important; box-shadow:0 26px 60px -26px rgba(0,0,0,.32) !important; }
+.digi-mega-item{ display:block; }
+.digi-mega-item .t{ display:block !important; margin-bottom:6px; }
+.digi-mega-item .d{ display:block !important; margin-top:0; }
+
+/* 2) "Our services empower businesses to:" — tighter gaps, bigger text */
+.elementor-16 .elementor-element-38ff16a .elementor-widget-spacer .elementor-spacer-inner{ height:14px !important; }
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-text{ font-size:1.18rem !important; font-weight:500 !important; color:#2c2f31 !important; line-height:1.5 !important; }
+.elementor-16 .elementor-element-38ff16a h2.elementor-heading-title{ font-size:clamp(1.9rem,3.4vw,2.6rem) !important; font-weight:700 !important; margin-bottom:6px !important; }
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-item{ margin-bottom:6px !important; }
+
+/* 3) Capability panels: on hover keep a soft blur so text pops; badge +
+      title on ONE horizontal line. */
+.dc-panel:hover img, .dc-panel:focus-visible img{ filter:blur(3px) brightness(.62) saturate(1.05) !important; transform:scale(1.08); }
+.dc-panel:hover .dc-glass, .dc-panel:focus-visible .dc-glass{ opacity:1; background:linear-gradient(180deg,rgba(16,18,22,.30) 0%,rgba(16,18,22,.72) 100%); -webkit-backdrop-filter:blur(1px); backdrop-filter:blur(1px); }
+.dc-panel-in{ justify-content:flex-end; }
+.dc-panel-ico{ margin-bottom:14px; }
+.dc-panel-badge{ display:inline-block !important; margin:0 12px 0 0 !important; vertical-align:middle; }
+.dc-panel h3{ display:inline !important; vertical-align:middle; }
+.dc-panel .dc-panel-head{ display:block; margin-bottom:4px; }
+
+/* 5) "Talent Excellence" -> orange (force) */
+.dc-head h2 b, .dc-about h2 b{ color:var(--dc-orange-400) !important; font-weight:700 !important; }
+
+/* 6) Mobile navbar: no Contact button / phone / slash. */
+@media(max-width:1024px){
+  header .elementor-element-64661e4,
+  header .elementor-element-b1ae9ce,
+  header .elementor-element-3baaf14{ display:none !important; }
+}
+/* Contact-us CTA hover -> BLACK (not dark orange) */
+header .elementor-element-64661e4 .elementor-button:hover,
+body.digi-page header .elementor-element-64661e4 .elementor-button:hover{
+  background:#111316 !important; border-color:#111316 !important;
+}
+body.digi-page header .elementor-element-64661e4 .elementor-button:hover .elementor-button-text,
+header .elementor-element-64661e4 .elementor-button:hover .elementor-button-text{ color:#ffffff !important; }
+
+/* 7) Colour rule: orange background => BLACK text; black background => WHITE text */
+.elementor-button.btn-on-accent,
+.elementor-button.btn-on-accent .elementor-button-text,
+.elementor-button.btn-on-accent .vamtam-btn-text,
+.elementor-button.btn-on-accent *{ color:#111316 !important; }
+.vamtam-sticky-header.nav-on-accent .elementor-item,
+.vamtam-sticky-header.nav-on-accent .vamtam-nav-text,
+.vamtam-sticky-header.nav-on-accent .vamtam-btn-text,
+.vamtam-sticky-header.nav-on-accent .elementor-button-text{ color:#111316 !important; }
+/* Contact CTA resting state (orange bg) -> black text */
+header .elementor-element-64661e4 .elementor-button .elementor-button-text,
+body.digi-page header .elementor-element-64661e4 .elementor-button .elementor-button-text{ color:#111316 !important; }
+.dc-onblack, .dc-onblack *{ color:#ffffff !important; }
+.dc-onorange, .dc-onorange *{ color:#111316 !important; }
+
+/* ================================================================
+   4) "Our expertise" — image service cards
+   ================================================================ */
+.dc-svc{ padding:16px 0 84px; background:#fff; }
+.dc-svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+.dc-svc-card{
+  display:flex; flex-direction:column; background:#fff; border:1px solid #ece5db; border-radius:16px;
+  overflow:hidden; text-decoration:none !important; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.dc-svc-card:hover{ transform:translateY(-6px); box-shadow:0 32px 62px -34px rgba(120,60,0,.3); border-color:var(--dc-orange-200); }
+.dc-svc-media{ position:relative; height:190px; overflow:hidden; }
+.dc-svc-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.dc-svc-card:hover .dc-svc-media img{ transform:scale(1.06); }
+.dc-svc-media::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.28)); }
+.dc-svc-body{ padding:24px 24px 26px; display:flex; flex-direction:column; flex:1; }
+.dc-svc-body h3{ margin:0 0 10px; font-size:1.28rem !important; font-weight:600 !important; color:#1f2224; }
+.dc-svc-body p{ margin:0 0 18px; font-size:1.04rem !important; color:#43474a; line-height:1.62; flex:1; }
+.dc-svc-link{ display:inline-flex; align-items:center; gap:10px; color:#1f2224 !important; font-weight:600; font-size:.98rem; }
+.dc-svc-link .arw{ width:34px; height:34px; border-radius:50%; background:var(--dc-grad); color:#fff; display:grid; place-items:center; transition:transform .25s ease; }
+.dc-svc-link svg{ width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2; }
+.dc-svc-card:hover .dc-svc-link .arw{ transform:translateX(4px); }
+@media(max-width:1024px){ .dc-svc-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:640px){ .dc-svc-grid{ grid-template-columns:1fr; } }
+
+/* ================================================================
+   8) Contact — static world map with 3 office pins
+   ================================================================ */
+.dc-worldmap{ position:relative; width:100%; aspect-ratio:2/1; border-radius:18px; overflow:hidden;
+  background:#14161A url('/worldmap-bg.jpg') center/cover no-repeat; box-shadow:0 30px 70px -34px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,.06); }
+.dc-worldmap::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(15,17,20,.35),rgba(15,17,20,.55)); }
+.dc-pin{ position:absolute; z-index:2; transform:translate(-50%,-50%); }
+.dc-pin-dot{ width:16px; height:16px; border-radius:50%; background:var(--dc-orange-100); box-shadow:0 0 0 6px rgba(255,175,20,.28); }
+.dc-pin-dot::after{ content:""; position:absolute; inset:-6px; border-radius:50%; border:2px solid var(--dc-orange-100); animation:dcPing 2s ease-out infinite; }
+@keyframes dcPing{ 0%{ transform:scale(.6); opacity:.9; } 100%{ transform:scale(2.2); opacity:0; } }
+.dc-pin-label{ position:absolute; left:50%; bottom:26px; transform:translateX(-50%); white-space:nowrap;
+  background:#fff; color:#1f2224; font-weight:600; font-size:.82rem; padding:6px 12px; border-radius:8px; box-shadow:0 12px 26px -14px rgba(0,0,0,.5); }
+.dc-pin-label::after{ content:""; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%) rotate(45deg); width:10px; height:10px; background:#fff; }
+.dc-offices{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:34px; }
+.dc-office{ background:#fff; border:1px solid #ece5db; border-radius:14px; padding:24px; }
+.dc-office .flag{ font-size:1.5rem; }
+.dc-office h3{ margin:10px 0 6px; font-size:1.18rem !important; font-weight:600 !important; color:#1f2224; }
+.dc-office p{ margin:0; color:#54585a; font-size:1rem; line-height:1.6; }
+.dc-office .tag{ display:inline-block; margin-bottom:6px; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--dc-orange-300); }
+@media(max-width:820px){ .dc-offices{ grid-template-columns:1fr; } .dc-pin-label{ font-size:.72rem; padding:4px 8px; } }
+
+/* badge + title on one horizontal line */
+.dc-panel-head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:4px; }
+.dc-panel-head .dc-panel-badge{ margin:0 !important; }
+.dc-panel-head h3{ display:inline !important; margin:0 !important; }
+
+/* force badge+title inline row (win over any span reset) */
+.dc-exp .dc-panel .dc-panel-head{ display:flex !important; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.dc-exp .dc-panel .dc-panel-head .dc-panel-badge{ display:inline-block !important; margin:0 !important; }
+.dc-exp .dc-panel .dc-panel-head h3{ display:inline !important; }
+
+/* ================================================================
+   Update pass — empower cards, expertise header, panel badge line
+   ================================================================ */
+/* 1) "Our services empower businesses to:" -> clean check-cards */
+.elementor-16 .elementor-element-38ff16a .elementor-widget-icon-list .elementor-icon-list-item{
+  background:#FAF7F3 !important; border:1px solid #efe7dd !important; border-radius:14px !important;
+  padding:16px 20px !important; align-items:center !important; transition:transform .2s ease, border-color .2s ease;
+}
+.elementor-16 .elementor-element-38ff16a .elementor-widget-icon-list .elementor-icon-list-item:hover{
+  transform:translateX(4px); border-color:var(--dc-orange-200) !important;
+}
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-icon{
+  width:34px !important; height:34px !important; border-radius:50% !important; background:var(--dc-grad) !important;
+  display:inline-flex !important; align-items:center; justify-content:center; margin-right:14px !important; flex:0 0 auto;
+}
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-icon i{ color:#fff !important; font-size:15px !important; }
+.elementor-16 .elementor-element-38ff16a .elementor-icon-list-text{ font-size:1.18rem !important; font-weight:500 !important; color:#26292b !important; line-height:1.45 !important; }
+.elementor-16 .elementor-element-38ff16a .elementor-widget-spacer .elementor-spacer-inner{ height:12px !important; }
+.elementor-16 .elementor-element-38ff16a h2.elementor-heading-title{ font-size:clamp(2rem,3.6vw,2.8rem) !important; font-weight:700 !important; margin-bottom:22px !important; }
+
+/* 2) "Our expertise" -> big section header */
+.elementor-16 .elementor-element-4b9b857 .elementor-widget-icon-list{ text-align:center; }
+.elementor-16 .elementor-element-4b9b857 .elementor-icon-list-items{ justify-content:center; }
+.elementor-16 .elementor-element-4b9b857 .elementor-icon-list-text{
+  font-size:clamp(2.1rem,4.2vw,3rem) !important; font-weight:700 !important; color:#1f2224 !important;
+  letter-spacing:-.01em; text-transform:none !important;
+}
+.elementor-16 .elementor-element-4b9b857 .elementor-icon-list-icon i{ color:var(--dc-orange-300) !important; font-size:26px !important; }
+
+/* 3) Capability panel: badge + title on the SAME line (inline flow, no stacking) */
+.dc-exp .dc-panel .dc-panel-head{ display:block !important; margin-bottom:4px; }
+.dc-exp .dc-panel .dc-panel-head .dc-panel-badge{
+  display:inline !important; margin:0 10px 0 0 !important; font-size:.74rem !important;
+  letter-spacing:.1em; vertical-align:middle; white-space:nowrap;
+}
+.dc-exp .dc-panel .dc-panel-head h3{ display:inline !important; vertical-align:middle; }
+
+/* ================================================================
+   Capability panels — equal content alignment across all 6 cards
+   (icon pinned to top; title area a fixed height so badges/titles
+   line up regardless of length). Plus tighter section spacing.
+   ================================================================ */
+.dc-panel-ico{ margin-bottom:auto !important; }          /* icon pinned to top -> all icons align */
+.dc-panel-in{ justify-content:flex-end !important; padding:24px 22px !important; }
+.dc-panel-head{
+  min-height:4.6rem !important;      /* reserve 3 lines so every badge/title starts at the same Y */
+  line-height:1.25 !important; margin-bottom:0 !important; align-self:stretch;
+}
+.dc-panel-head h3{ line-height:1.25 !important; }
+
+/* section spacing: breathing room under the hero + trim internal gaps */
+.dc-exp{ padding:52px 0 68px !important; }
+.dc-exp .dc-head{ margin-bottom:38px !important; }
+.elementor-16 .elementor-element-38ff16a{ padding-top:34px !important; }
+
+/* ================================================================
+   Capability panels — three stacked rows (badge / title / desc),
+   each a FIXED height so all 6 cards match exactly. Badge is on its
+   own line (not inline with the title). Description always visible.
+   ================================================================ */
+.dc-exp .dc-panel .dc-panel-head{ display:block !important; min-height:0 !important; margin-bottom:12px !important; }
+.dc-exp .dc-panel .dc-panel-head .dc-panel-badge{
+  display:block !important; margin:0 0 8px 0 !important; white-space:normal; line-height:1.2;
+}
+.dc-exp .dc-panel .dc-panel-head h3{
+  display:block !important; line-height:1.3 !important; font-size:1.24rem !important;
+  min-height:4.85rem;                 /* reserve ~3 lines so every title row is equal */
+}
+.dc-exp .dc-panel p{
+  max-height:none !important; opacity:1 !important; margin:0 !important;
+  display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;
+  min-height:4.6rem;                  /* reserve ~3 lines for the description row */
+  font-size:.98rem !important; line-height:1.55 !important; color:#dfe3e9 !important;
+}
+.dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{ -webkit-line-clamp:6; min-height:0; }
+
+/* Solutions grouped mega — 4 columns of grouped links */
+header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ grid-template-columns:repeat(4,minmax(0,1fr)) !important; gap:8px 34px !important; }
+.dc-mega-col{ min-width:0; }
+.dc-mega-group{ font-size:.72rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--dc-orange-300); margin:0 0 8px; }
+.dc-mega-col .dc-mega-group:not(:first-child){ margin-top:20px; }
+.dc-mega-col a{ display:block; color:#33373a !important; font-size:.9rem; padding:5px 0; text-decoration:none !important; line-height:1.35; }
+.dc-mega-col a:hover{ color:var(--dc-orange-300) !important; padding-left:4px; transition:padding .15s ease,color .15s ease; }
+
+/* redesign extras */
+.dc-story-p{ font-size:1.12rem !important; line-height:1.72 !important; color:#33373a !important; margin:0 0 18px !important; }
+.dc-oplist li{ font-size:1.1rem !important; padding:10px 0; }
+.dc-story-card{ padding:30px 30px 32px; }
+.dc-story-card p{ font-size:1.06rem !important; line-height:1.65; }
+.dc-diff .dc-card{ background:#FAF7F3; }
