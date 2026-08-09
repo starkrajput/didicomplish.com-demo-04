@@ -1251,14 +1251,23 @@ header{ opacity:1 !important; visibility:visible !important; }
 .dc-industry .dc-card{
   position:relative; overflow:hidden; border:0 !important; border-radius:16px; min-height:270px;
   display:flex; flex-direction:column; justify-content:flex-end; padding:30px 26px; color:#fff;
-  background-image:linear-gradient(158deg, rgba(240,84,30,.34) 0%, rgba(22,24,26,.55) 46%, rgba(13,14,16,.90) 100%), var(--bg);
-  background-size:cover; background-position:center;
+  background:#1a1e22; isolation:isolate;
   box-shadow:0 26px 54px -30px rgba(0,0,0,.55); transition:transform .3s ease, box-shadow .3s ease;
 }
+.dc-industry .dc-card::before{                 /* blurred image layer */
+  content:""; position:absolute; inset:-12px; z-index:0;
+  background-image:var(--bg); background-size:cover; background-position:center;
+  filter:blur(3px) brightness(.55) grayscale(.15); transition:filter .35s ease, transform .5s ease;
+}
+.dc-industry .dc-card::after{                  /* dark overlay for text legibility */
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(20,24,28,.20) 0%, rgba(14,16,18,.78) 100%);
+}
+.dc-industry .dc-card > *{ position:relative; z-index:2; }
 .dc-industry .dc-card:hover{ transform:translateY(-6px); box-shadow:0 36px 66px -30px rgba(0,0,0,.62); }
-.dc-industry .dc-card:hover{ background-image:linear-gradient(158deg, rgba(240,84,30,.5) 0%, rgba(22,24,26,.55) 46%, rgba(13,14,16,.9) 100%), var(--bg); }
-.dc-industry .dc-card .dc-card-title{ color:#fff !important; text-shadow:0 2px 16px rgba(0,0,0,.65), 0 0 26px rgba(255,140,20,.25); margin-bottom:10px; }
-.dc-industry .dc-card p{ color:#eef1f4 !important; text-shadow:0 1px 12px rgba(0,0,0,.7); }
+.dc-industry .dc-card:hover::before{ filter:blur(2px) brightness(.62) grayscale(0); transform:scale(1.05); }
+.dc-industry .dc-card .dc-card-title{ color:#fff !important; text-shadow:0 2px 16px rgba(0,0,0,.7); margin-bottom:10px; }
+.dc-industry .dc-card p{ color:#eef1f4 !important; text-shadow:0 1px 12px rgba(0,0,0,.75); }
 .dc-industry .dc-card:nth-child(1){ --bg:url('/wp-content/uploads/2023/06/GettyImages-1390358120-1024x632.jpg'); }
 .dc-industry .dc-card:nth-child(2){ --bg:url('/wp-content/uploads/2023/06/GettyImages-1150296423.jpg'); }
 .dc-industry .dc-card:nth-child(3){ --bg:url('/wp-content/uploads/2023/06/GettyImages-1459035058-1024x632.jpg'); }
@@ -1275,12 +1284,11 @@ header{ opacity:1 !important; visibility:visible !important; }
 .dc-impact .dc-story-card .dc-card-title{ color:#fff !important; }
 .dc-impact .dc-story-card p{ color:#dfe3e9 !important; }
 
-/* --- "Aligning Capability, Technology, and Growth" illustration -> orange card --- */
+/* --- "Aligning Capability, Technology, and Growth" illustration: no background --- */
 .elementor-element-59b3a9f .elementor-widget-container{
-  background:linear-gradient(140deg,#FFAF14 0%,#FA961E 45%,#F0541E 100%);
-  border-radius:26px; padding:30px; box-shadow:0 30px 64px -34px rgba(240,84,30,.6);
+  background:none !important; border-radius:0 !important; padding:0 !important; box-shadow:none !important;
 }
-.elementor-element-59b3a9f img{ filter:brightness(0) invert(1); opacity:.92; }
+.elementor-element-59b3a9f img{ filter:none !important; opacity:1 !important; }
 
 /* --- Contact "Find us" map band: make all body text visible (white) --- */
 .digi-mapband .dc-head-p,
@@ -1327,3 +1335,88 @@ header{ opacity:1 !important; visibility:visible !important; }
 .elementor-element-937f54e p{ color:#5c6067 !important; font-size:.98rem !important; line-height:1.6 !important; margin:0 !important; }
 @media(max-width:1024px){ .elementor-element-937f54e .elementor-column{ width:33.33% !important; margin-bottom:16px; } }
 @media(max-width:640px){ .elementor-element-937f54e .elementor-column{ width:50% !important; } }
+
+/* ============================================================================
+   2026-08-10 (pass 4)
+   ============================================================================ */
+
+/* --- Stat band [1000+ / 50+ / 3+] : plain white background --- */
+.digi-statband{ background:#ffffff !important; }
+.digi-statband .digi-statlbl{ color:#5c6067 !important; }
+.digi-statband .digi-count{ color:var(--dc-orange-300) !important; }
+.digi-triowrap, .digi-statband{ box-shadow:none; }
+
+/* --- "What We Do / Empowering Enterprises" : REVERT to the accordion, with a
+   rich CHARCOAL (not blue) blurred overlay and sharp white text ------------- */
+.dc-exp{ background:#232a30 !important; }
+.dc-exp-bg::after{ background:linear-gradient(180deg,rgba(30,36,42,.80),rgba(22,27,31,.93)) !important; }
+.dc-exp-row{ display:flex !important; gap:16px !important; height:460px !important; }
+.dc-exp .dc-panel{ flex:1 1 0 !important; height:auto !important; transform:none !important; }
+.dc-exp .dc-panel:hover, .dc-exp .dc-panel:focus-visible{ flex-grow:3.4 !important; transform:none !important; box-shadow:0 26px 54px -26px rgba(0,0,0,.7); }
+.dc-exp .dc-glass{
+  background:linear-gradient(180deg, rgba(30,36,42,.34) 0%, rgba(22,27,31,.88) 100%) !important;
+  -webkit-backdrop-filter:blur(5px) saturate(1.05) !important; backdrop-filter:blur(5px) saturate(1.05) !important; opacity:1 !important;
+}
+.dc-exp .dc-panel:hover .dc-glass, .dc-exp .dc-panel:focus-visible .dc-glass{ opacity:0 !important; -webkit-backdrop-filter:none !important; backdrop-filter:none !important; }
+.dc-exp .dc-panel:hover .dc-panel-in, .dc-exp .dc-panel:focus-visible .dc-panel-in{ background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(12,15,17,.74) 100%) !important; }
+.dc-exp .dc-panel:hover img, .dc-exp .dc-panel:focus-visible img{ filter:none !important; transform:scale(1.06) !important; }
+.dc-exp .dc-panel-head{ display:block !important; min-height:0 !important; margin-bottom:6px !important; }
+.dc-exp .dc-panel-head h3{ display:block !important; min-height:0 !important; font-size:1.3rem !important; color:#ffffff !important; text-shadow:0 1px 14px rgba(0,0,0,.5); }
+.dc-exp .dc-panel .dc-panel-badge{ display:block !important; margin:0 0 8px 0 !important; color:var(--dc-orange-100) !important; }
+.dc-exp .dc-panel p{
+  color:#f4f6f8 !important; max-height:0 !important; opacity:0 !important; margin:0 !important;
+  -webkit-line-clamp:unset !important; min-height:0 !important; overflow:hidden;
+  transition:max-height .5s ease, opacity .45s ease, margin .5s ease;
+}
+.dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{ max-height:220px !important; opacity:1 !important; margin-top:12px !important; }
+@media(max-width:900px){
+  .dc-exp-row{ flex-direction:column !important; height:auto !important; }
+  .dc-exp .dc-panel{ flex:none !important; height:210px !important; }
+  .dc-exp .dc-panel:hover, .dc-exp .dc-panel:focus-visible{ height:330px !important; flex-grow:0 !important; }
+}
+
+/* --- Icons across all pages: NO orange fill, larger, cleaner (ghost style) --- */
+.dc-panel-ico{
+  background:transparent !important; border:1.6px solid rgba(255,255,255,.4) !important;
+  width:60px !important; height:60px !important; border-radius:15px !important;
+}
+.dc-panel-ico svg{ width:32px !important; height:32px !important; stroke:#fff !important; }
+.dc-ico{
+  background:transparent !important; border:1.7px solid var(--dc-orange-300) !important;
+  width:64px !important; height:64px !important; border-radius:16px !important;
+}
+.dc-ico svg{ width:34px !important; height:34px !important; stroke:var(--dc-orange-300) !important; fill:none; stroke-width:1.7; }
+.dc-cap-ico{ background:transparent !important; border:1.6px solid rgba(255,255,255,.38) !important; width:58px !important; height:58px !important; }
+.dc-cap-ico svg{ width:30px !important; height:30px !important; }
+.dc-icard svg{ width:42px !important; height:42px !important; stroke-width:1.6 !important; }
+.dc-panel-ico svg, .dc-ico svg, .dc-cap-ico svg, .dc-icard svg{ stroke-linecap:round; stroke-linejoin:round; }
+
+/* --- Contact "Find us" : label pill + centred, justified content --- */
+.digi-mapband-head .digi-eyebrow{
+  display:inline-flex !important; align-items:center; gap:8px; justify-content:center;
+  background:rgba(255,175,20,.15); color:var(--dc-orange-100) !important;
+  padding:7px 18px; border-radius:999px; font-size:.74rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+}
+.digi-mapband-head h2{ margin-top:16px !important; }
+.digi-mapband-head .dc-head-p{ max-width:62ch; margin:14px auto 0 !important; text-align:center; }
+.dc-offices{ justify-content:center; }
+
+/* --- Hero secondary (ghost) CTA button --- */
+.digi-slide-btns{ display:inline-flex; flex-wrap:wrap; gap:14px; align-items:center; }
+.digi-slide-btn.ghost{ background:transparent; border:1.5px solid rgba(255,255,255,.6); color:#fff; }
+.digi-slide-btn.ghost:hover{ background:#fff; border-color:#fff; }
+.digi-slide-btn.ghost:hover span{ color:#36454F; }
+
+/* --- Page-load transition ("movie switch" wipe) --- */
+#dc-pagefx{ position:fixed; inset:0; z-index:99999; pointer-events:none; display:grid; grid-template-columns:repeat(5,1fr); }
+#dc-pagefx span{ background:#36454F; transform:scaleY(1); transform-origin:top; transition:transform .55s cubic-bezier(.7,0,.2,1); }
+#dc-pagefx.is-done span{ transform:scaleY(0); }
+#dc-pagefx.is-done span:nth-child(2){ transition-delay:.06s } #dc-pagefx.is-done span:nth-child(3){ transition-delay:.12s }
+#dc-pagefx.is-done span:nth-child(4){ transition-delay:.18s } #dc-pagefx.is-done span:nth-child(5){ transition-delay:.24s }
+body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:dcFadeUp .7s .25s both; }
+@keyframes dcFadeUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
+@media(prefers-reduced-motion:reduce){ #dc-pagefx{ display:none; } body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:none; } }
+
+/* Careers "What We Offer?" icons */
+.dc-offer-ico{ display:inline-grid; place-items:center; width:62px; height:62px; border-radius:16px; border:1.7px solid var(--dc-orange-300); color:var(--dc-orange-300); margin-bottom:18px; }
+.dc-offer-ico svg{ width:32px; height:32px; stroke-linecap:round; stroke-linejoin:round; }

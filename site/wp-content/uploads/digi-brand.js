@@ -314,3 +314,22 @@
     boot();
   }
 })();
+
+/* ---------- Page-load transition ("movie switch" wipe) ---------- */
+(function () {
+  try {
+    function run() {
+      if (document.getElementById('dc-pagefx')) return;
+      var fx = document.createElement('div');
+      fx.id = 'dc-pagefx';
+      for (var i = 0; i < 5; i++) fx.appendChild(document.createElement('span'));
+      document.body.appendChild(fx);
+      document.body.classList.add('dc-fx-in');
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { fx.classList.add('is-done'); });
+      });
+      setTimeout(function () { if (fx && fx.parentNode) fx.parentNode.removeChild(fx); }, 1300);
+    }
+    if (document.body) run(); else document.addEventListener('DOMContentLoaded', run);
+  } catch (e) { /* no-op */ }
+})();
