@@ -1576,3 +1576,18 @@ body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:dcFadeUp .7s .2
 .elementor-element-937f54e p{ color:#5c6067 !important; font-size:.98rem !important; line-height:1.62 !important; margin:0 !important; }
 @media(max-width:1024px){ .elementor-element-937f54e .elementor-column{ width:33.33% !important; margin-bottom:18px; } }
 @media(max-width:640px){ .elementor-element-937f54e .elementor-column{ width:100% !important; } }
+
+/* ============================================================================
+   2026-08-10 (pass 8) — Contact "Find us": normal (white) section so the
+   heading + text are fully visible; world map stays a dark panel in the middle.
+   ============================================================================ */
+.digi-mapband{ background:#ffffff !important; }
+.digi-mapband::before{ display:none !important; }
+.digi-mapband .digi-mapband-head h2{ color:#36454F !important; -webkit-text-fill-color:#36454F !important; }
+.digi-mapband .digi-mapband-head h2 b{ color:var(--dc-orange-400) !important; -webkit-text-fill-color:var(--dc-orange-400) !important; }
+.digi-mapband .digi-mapband-head .dc-head-p{ color:#5c6067 !important; }
+.digi-mapband-head .digi-eyebrow{ background:rgba(240,118,29,.12) !important; color:var(--dc-orange-400) !important; box-shadow:none !important; }
+.digi-mapband .dc-office{ background:#ffffff !important; border:1px solid #ece5db !important; -webkit-backdrop-filter:none !important; backdrop-filter:none !important; }
+.digi-mapband .dc-office h3{ color:#1f2224 !important; text-shadow:none !important; }
+.digi-mapband .dc-office p{ color:#54585a !important; text-shadow:none !important; }
+.digi-mapband .dc-office .tag{ color:var(--dc-orange-300) !important; }
