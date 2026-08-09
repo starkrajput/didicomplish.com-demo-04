@@ -1472,3 +1472,62 @@ body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:dcFadeUp .7s .2
   display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden;
   min-height:6.1rem; margin-top:10px;
 }
+
+/* ============================================================================
+   2026-08-10 (pass 6)
+   ============================================================================ */
+
+/* 1) "Empowering Enterprises" -> RESTORE the accordion; fix only the title
+   alignment (2-line "Global Capability Building" pushed content up). Reserve
+   two lines for every title so all titles sit on the same horizontal line. */
+.dc-exp-row{ display:flex !important; grid-template-columns:none !important; gap:16px !important; height:460px !important; align-items:stretch !important; }
+.dc-exp .dc-panel{ flex:1 1 0 !important; height:auto !important; min-height:0 !important; }
+.dc-exp .dc-panel:hover, .dc-exp .dc-panel:focus-visible{ flex-grow:3.4 !important; transform:none !important; box-shadow:0 26px 54px -26px rgba(0,0,0,.7); }
+.dc-exp .dc-panel-in{ justify-content:flex-end !important; padding:26px 24px !important; }
+.dc-exp .dc-panel-ico{ margin:0 0 auto 0 !important; }
+.dc-exp .dc-panel-head{ display:block !important; min-height:0 !important; margin-bottom:0 !important; }
+.dc-exp .dc-panel .dc-panel-badge{ display:block !important; margin:0 0 8px 0 !important; }
+.dc-exp .dc-panel-head h3{ display:block !important; min-height:3.4rem !important; margin:0 !important; font-size:1.28rem !important; line-height:1.25 !important; }
+/* descriptions hidden until hover (accordion behaviour) */
+.dc-exp .dc-panel p{ max-height:0 !important; opacity:0 !important; margin:0 !important; min-height:0 !important; -webkit-line-clamp:unset !important; }
+.dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{ max-height:220px !important; opacity:1 !important; margin-top:12px !important; }
+.dc-exp .dc-glass{ opacity:1 !important; }
+.dc-exp .dc-panel:hover .dc-glass, .dc-exp .dc-panel:focus-visible .dc-glass{ opacity:0 !important; -webkit-backdrop-filter:none !important; backdrop-filter:none !important; }
+@media(max-width:900px){
+  .dc-exp-row{ flex-direction:column !important; height:auto !important; }
+  .dc-exp .dc-panel{ flex:none !important; height:220px !important; }
+  .dc-exp .dc-panel:hover, .dc-exp .dc-panel:focus-visible{ height:330px !important; flex-grow:0 !important; }
+}
+
+/* 2) Contact "Find us" band -> pure black (not charcoal) */
+.digi-mapband{ background-color:#000000 !important; }
+.digi-mapband::before{ background:linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.93) 100%) !important; }
+.digi-mapband .dc-office{ background:rgba(0,0,0,.5) !important; border-color:rgba(255,255,255,.22) !important; }
+
+/* 3) Footer -> pure black (not charcoal) */
+.footer-wrapper, footer#main-footer.main-footer{ background:#000000 !important; }
+.dc-footer{
+  background:linear-gradient(rgba(0,0,0,.94) 0%, rgba(0,0,0,.975) 100%),
+             url('/wp-content/uploads/2023/07/GettyImages-1277288373.jpg') center/cover no-repeat !important;
+}
+
+/* 4) Impact cards -> image cards with a PURE BLACK overlay (not charcoal) */
+.dc-impact .dc-story-card{
+  position:relative !important; overflow:hidden; background:#000 !important; color:#fff !important;
+  border:0 !important; border-left:3px solid var(--dc-orange-300) !important; border-radius:16px; isolation:isolate;
+}
+.dc-impact .dc-story-card::before{
+  content:""; position:absolute; inset:0; z-index:0; background-image:var(--bg);
+  background-size:cover; background-position:center; opacity:.45; filter:grayscale(.1);
+}
+.dc-impact .dc-story-card::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.85) 100%);
+}
+.dc-impact .dc-story-card > *{ position:relative; z-index:2; }
+.dc-impact .dc-story-card .dc-card-title{ color:#fff !important; text-shadow:0 1px 10px rgba(0,0,0,.6); }
+.dc-impact .dc-story-card p{ color:#eef1f4 !important; text-shadow:0 1px 8px rgba(0,0,0,.6); }
+.dc-impact .dc-story-card:nth-child(1){ --bg:url('/wp-content/uploads/2023/06/GettyImages-1459035058-1024x632.jpg'); }
+.dc-impact .dc-story-card:nth-child(2){ --bg:url('/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg'); }
+.dc-impact .dc-story-card:nth-child(3){ --bg:url('/wp-content/uploads/2023/06/GettyImages-1390358120-1024x632.jpg'); }
+.dc-impact .dc-story-card:nth-child(4){ --bg:url('/wp-content/uploads/2023/06/GettyImages-1150296423.jpg'); }
