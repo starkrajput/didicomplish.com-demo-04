@@ -1487,7 +1487,7 @@ body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:dcFadeUp .7s .2
 .dc-exp .dc-panel-ico{ margin:0 0 auto 0 !important; }
 .dc-exp .dc-panel-head{ display:block !important; min-height:0 !important; margin-bottom:0 !important; }
 .dc-exp .dc-panel .dc-panel-badge{ display:block !important; margin:0 0 8px 0 !important; }
-.dc-exp .dc-panel-head h3{ display:block !important; min-height:3.4rem !important; margin:0 !important; font-size:1.28rem !important; line-height:1.25 !important; }
+.dc-exp .dc-panel-head h3{ display:block !important; min-height:4.9rem !important; margin:0 !important; font-size:1.28rem !important; line-height:1.25 !important; }
 /* descriptions hidden until hover (accordion behaviour) */
 .dc-exp .dc-panel p{ max-height:0 !important; opacity:0 !important; margin:0 !important; min-height:0 !important; -webkit-line-clamp:unset !important; }
 .dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{ max-height:220px !important; opacity:1 !important; margin-top:12px !important; }
