@@ -1013,3 +1013,105 @@ header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ grid-template-c
 .dc-story-card{ padding:30px 30px 32px; }
 .dc-story-card p{ font-size:1.06rem !important; line-height:1.65; }
 .dc-diff .dc-card{ background:#FAF7F3; }
+
+/* ============================================================================
+   2026-08-09 UPDATE PASS  (re-applied after working-tree overwrite)
+   1) Black -> charcoal (#36454F) everywhere   2) Solutions mega equal heights
+   3) SVG contact icons   4) Footer equal-height columns   5) Navbar always
+   visible on load   6) Styled file inputs   7) Contact info panel (white addr)
+   ============================================================================ */
+
+/* ---- 1. Black -> charcoal (#36454F) --------------------------------------- */
+:root{ --dc-ink:#36454F; }
+/* Elementor kit globals: footer bg / dark surfaces / button-text black */
+body.elementor-kit-5{
+  --e-global-color-vamtam_accent_1:#36454F;      /* #2E3238 footer & dark bars  */
+  --e-global-color-vamtam_accent_6:#36454F;      /* #161616 button / text black */
+  --e-global-color-vamtam_accent_8:rgba(54,69,79,.30); /* dark overlay -> charcoal */
+}
+/* Primary dark button */
+.digi-btn{ background:#36454F !important; border-color:#36454F !important; }
+.digi-btn.light:hover{ background:#36454F !important; border-color:#36454F !important; color:#fff !important; }
+/* Custom dark section surfaces (hardcoded near-blacks) */
+.digi-statband{ background:#36454F !important; }
+.digi-mega-thumb{ background:#36454F !important; }
+.dc-caps{ background:#36454F !important; }
+.dc-cap{ background:#3F4F5A !important; border-color:#54646E !important; }
+.dc-cap:hover{ background:#495B67 !important; }
+.dc-exp{ background:#36454F !important; }
+.dc-worldmap{ background:#36454F url('/worldmap-bg.jpg') center/cover no-repeat !important; }
+.digi-mapband{ background:#36454F url('/worldmap-bg.jpg') center/cover no-repeat !important; }
+.digi-mapband::before{ background:linear-gradient(180deg,rgba(54,69,79,.82) 0%,rgba(54,69,79,.92) 100%) !important; }
+.digi-hero{
+  background:linear-gradient(180deg,rgba(40,52,60,.60) 0%,rgba(40,52,60,.88) 100%),
+             url('/wp-content/uploads/2023/06/GettyImages-1185765407.jpg') center/cover no-repeat !important;
+}
+
+/* ---- 2. Solutions mega menu: equal heights so the SECOND group heading
+   (Leadership / Enterprise Systems / Integrated Transformation) lines up
+   across every column. Reserve 2 lines for the first heading and keep each
+   link on a single line so the first block is a constant height. ---------- */
+.dc-mega-col .dc-mega-group:first-child{ min-height:2.4em; }
+/* Reserve two lines per link (some wrap, most don't) so every column's first
+   block is a constant height and the 2nd heading lines up — no text clipping. */
+header ul.sub-menu.digi-mega .dc-mega-col a{
+  display:block; box-sizing:border-box; white-space:normal;
+  font-size:.86rem; line-height:1.3; padding:11px 0 !important; min-height:58px;
+}
+.dc-mega-col .dc-mega-group:not(:first-child){ margin-top:22px !important; }
+
+/* ---- 3. Contact info icons rendered as crisp inline SVG ------------------- */
+.digi-contact-info .tk{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; flex:0 0 22px; color:#FF9B00;
+}
+.digi-contact-info .tk svg{ width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.7; }
+
+/* ---- 4. Footer columns: equal height + top-aligned (justified) ----------- */
+footer .elementor-element-fbe3fc5 > .elementor-container{ align-items:stretch !important; }
+footer .elementor-element-fbe3fc5 > .elementor-container > .elementor-column{ display:flex !important; }
+footer .elementor-element-fbe3fc5 > .elementor-container > .elementor-column > .elementor-widget-wrap{
+  width:100%; height:100%; align-content:flex-start !important; justify-content:flex-start !important;
+}
+
+/* ---- 5. Navbar always visible on load / new-page open -------------------- */
+/* Neutralise any entrance/reveal state so the bar is painted immediately, and
+   keep the inner-page header solid white from the first frame. */
+body.digi-page header .vamtam-sticky-header,
+body.digi-page header .vamtam-sticky-header--transparent-header,
+body.digi-page header .vamtam-sticky-header--fixed{
+  opacity:1 !important; visibility:visible !important;
+}
+body.digi-page header .vamtam-sticky-header:not(.vamtam-sticky-header--fixed){
+  transform:none !important; background-color:#ffffff !important;
+}
+header{ opacity:1 !important; visibility:visible !important; }
+
+/* ---- 6. Styled "Choose file" input (careers + contact) ------------------- */
+.digi-field input[type=file]{
+  padding:0 !important; border:1.5px dashed #c3ccc6 !important; background:#faf9f6 !important;
+  border-radius:12px !important; cursor:pointer; color:#5c6067; font-size:.9rem;
+  line-height:1.2; display:flex; align-items:center; overflow:hidden;
+}
+.digi-field input[type=file]::file-selector-button{
+  margin:0 16px 0 0; padding:14px 22px; border:0; border-radius:11px 0 0 11px;
+  background:#36454F; color:#fff; font-family:inherit; font-weight:600; font-size:.88rem;
+  cursor:pointer; transition:background .2s ease, color .2s ease;
+}
+.digi-field input[type=file]:hover::file-selector-button{ background:#FF9B00; color:#36454F; }
+.digi-field input[type=file]:focus{ outline:none; border-color:#FF9B00 !important; }
+
+/* ---- 7. Contact page: left info block as a charcoal panel (white address) - */
+.digi-contact-info{
+  background:#36454F; border-radius:24px; padding:42px 40px; color:#fff;
+  box-shadow:0 30px 70px -40px rgba(0,0,0,.5);
+}
+.digi-contact-info .digi-eyebrow{ color:#FF9B00 !important; }
+.digi-contact-info .digi-eyebrow::before{ background:#FF9B00; }
+.digi-contact-info h2{ color:#ffffff !important; }
+.digi-contact-info .digi-lead{ color:#dfe3e9 !important; }
+.digi-contact-info .digi-list li{ color:#ffffff; border-top-color:rgba(255,255,255,.16) !important; }
+.digi-contact-info .digi-list li:last-child{ border-bottom-color:rgba(255,255,255,.16) !important; }
+.digi-contact-info .digi-list a{ color:#ffffff !important; }
+.digi-contact-info .digi-list a:hover{ color:#FF9B00 !important; }
+@media(max-width:960px){ .digi-contact-info{ padding:32px 26px; } }
