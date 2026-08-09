@@ -1591,3 +1591,15 @@ body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:dcFadeUp .7s .2
 .digi-mapband .dc-office h3{ color:#1f2224 !important; text-shadow:none !important; }
 .digi-mapband .dc-office p{ color:#54585a !important; text-shadow:none !important; }
 .digi-mapband .dc-office .tag{ color:var(--dc-orange-300) !important; }
+
+/* ============================================================================
+   2026-08-10 (pass 9) — restore the smooth accordion open/close: the panel
+   width is driven by flex-grow, so that must be in the transition list (a
+   later rule had reduced it to transform/box-shadow only, making it snap).
+   ============================================================================ */
+.dc-exp .dc-panel{
+  transition:flex-grow .55s cubic-bezier(.4,.08,.2,1), box-shadow .45s ease, transform .3s ease !important;
+}
+.dc-exp .dc-panel img{ transition:transform .8s cubic-bezier(.4,.08,.2,1), filter .6s ease !important; }
+.dc-exp .dc-glass{ transition:opacity .5s ease, backdrop-filter .5s ease !important; }
+.dc-exp .dc-panel p{ transition:max-height .55s ease, opacity .45s ease .1s, margin .5s ease !important; }
