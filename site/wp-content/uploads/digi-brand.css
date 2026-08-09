@@ -1115,3 +1115,107 @@ header{ opacity:1 !important; visibility:visible !important; }
 .digi-contact-info .digi-list a{ color:#ffffff !important; }
 .digi-contact-info .digi-list a:hover{ color:#FF9B00 !important; }
 @media(max-width:960px){ .digi-contact-info{ padding:32px 26px; } }
+
+/* ============================================================================
+   2026-08-09 (pass 2) — home: Integrated-Approach section (replaces the old
+   "Our services empower businesses to:"), de-blue the capability cards.
+   ============================================================================ */
+.dc-integrated{ background:#ffffff; padding:72px 0 84px; }
+.dc-integrated-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center; }
+.dc-integrated-intro .dc-bar{ margin:0 0 20px; }
+.dc-integrated-intro .dc-eyebrow{ display:inline-block; color:var(--dc-orange-300); font-size:.8rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.dc-integrated-intro h2{ font-size:clamp(1.9rem,3.4vw,2.6rem); font-weight:400; line-height:1.14; margin:0 0 18px; color:#36454F; }
+.dc-integrated-intro h2 b{ color:var(--dc-orange-400); font-weight:700; }
+.dc-integrated-intro p{ color:#43474a; line-height:1.7; font-size:1.05rem; margin:0 0 14px; max-width:54ch; }
+.dc-diffgrid{ display:grid; grid-template-columns:1fr 1fr; gap:30px 36px; }
+.dc-diff-card{ border-top:2px solid #ece5db; padding:20px 0 6px; }
+.dc-diff-card h3{ display:flex; align-items:center; gap:12px; margin:0 0 10px; font-size:1.16rem !important; font-weight:700 !important; color:#36454F; line-height:1.3; }
+.dc-diff-card h3::after{ content:"\203A"; margin-left:auto; color:var(--dc-orange-300); font-size:1.5rem; line-height:1; font-weight:400; }
+.dc-diff-card p{ margin:0; color:#5c6067; font-size:1rem; line-height:1.62; }
+@media(max-width:900px){ .dc-integrated-grid{ grid-template-columns:1fr; gap:38px; } .dc-diffgrid{ gap:24px 30px; } }
+@media(max-width:520px){ .dc-diffgrid{ grid-template-columns:1fr; } }
+
+/* De-blue the "Empowering Enterprises" capability cards: neutral charcoal
+   glass/overlay instead of the cool blue rgba(20,22,28). */
+.dc-exp{ background:#2b2b2d !important; }
+.dc-exp-bg::after{ background:linear-gradient(180deg,rgba(34,34,36,.80),rgba(28,28,30,.92)) !important; }
+.dc-glass{ background:linear-gradient(180deg,rgba(38,38,40,.30) 0%,rgba(30,30,32,.82) 100%) !important; }
+.dc-panel:hover .dc-glass, .dc-panel:focus-visible .dc-glass{ background:linear-gradient(180deg,rgba(38,38,40,.32) 0%,rgba(28,28,30,.74) 100%) !important; }
+
+/* ============================================================================
+   2026-08-09 (pass 2) — Rebuilt footer (dc-footer): CTA band + 4 columns +
+   bottom bar (legal left / social centre / copyright right). Content per the
+   Website-Redesign document. Replaces the old Elementor footer markup.
+   ============================================================================ */
+.footer-wrapper, footer#main-footer.main-footer{ background:#36454F; }
+.dc-footer{ background:#36454F; color:#e7eaee; padding:70px 0 34px; font-size:.96rem; }
+.dc-footer .dc-wrap{ max-width:1280px; margin:0 auto; padding:0 30px; box-sizing:border-box; }
+/* CTA band */
+.dc-footer-cta{
+  display:flex; align-items:center; justify-content:space-between; gap:34px; flex-wrap:wrap;
+  padding-bottom:44px; margin-bottom:48px; border-bottom:1px solid rgba(255,255,255,.14);
+}
+.dc-footer-cta-txt h2{ margin:0 0 10px; color:#fff; font-weight:400; font-size:clamp(1.6rem,2.8vw,2.3rem); line-height:1.15; }
+.dc-footer-cta-txt h2 b{ color:var(--dc-orange-100); font-weight:700; }
+.dc-footer-cta-txt p{ margin:0; color:#c3c9d0; max-width:60ch; line-height:1.6; }
+.dc-footer-cta-btn{
+  flex:0 0 auto; display:inline-flex; align-items:center; gap:12px; white-space:nowrap;
+  background:var(--dc-orange-100); color:#36454F !important; font-weight:700; font-size:.98rem;
+  padding:16px 30px; border-radius:999px; text-decoration:none !important; transition:transform .2s ease, background .2s ease;
+}
+.dc-footer-cta-btn:hover{ background:#fff; transform:translateY(-2px); }
+.dc-footer-cta-btn .arw{ transition:transform .2s ease; }
+.dc-footer-cta-btn:hover .arw{ transform:translateX(4px); }
+/* Columns */
+.dc-footer-cols{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:46px; }
+.dc-footer-logo{ display:inline-block; color:#fff !important; font-size:1.4rem; font-weight:700; letter-spacing:-.01em; text-decoration:none !important; margin-bottom:16px; }
+.dc-footer-brand p{ margin:0 0 18px; color:#b9c0c8; line-height:1.7; max-width:42ch; }
+.dc-footer-col h4{ margin:0 0 18px; color:#fff; font-size:.82rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+.dc-footer-col ul{ list-style:none; margin:0; padding:0; }
+.dc-footer-col li{ margin-bottom:11px; }
+.dc-footer-col a, .dc-footer-brand ul a{ color:#c3c9d0 !important; text-decoration:none !important; transition:color .2s ease, padding .2s ease; }
+.dc-footer-col a:hover, .dc-footer-brand ul a:hover{ color:var(--dc-orange-100) !important; }
+.dc-footer-brand ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px 22px; }
+/* Bottom bar */
+.dc-footer-bottom{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px;
+  padding-top:28px; border-top:1px solid rgba(255,255,255,.14);
+}
+.dc-footer-legal{ display:flex; gap:26px; }
+.dc-footer-legal a{ color:#c3c9d0 !important; text-decoration:none !important; font-size:.9rem; }
+.dc-footer-legal a:hover{ color:var(--dc-orange-100) !important; }
+.dc-footer-social{ display:flex; gap:12px; justify-content:center; }
+.dc-footer-social a{
+  width:38px; height:38px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.10); color:#fff; transition:background .2s ease, transform .2s ease;
+}
+.dc-footer-social a:hover{ background:var(--dc-orange-100); transform:translateY(-2px); }
+.dc-footer-social svg{ width:17px; height:17px; fill:currentColor; }
+.dc-footer-social a:hover svg{ fill:#36454F; }
+.dc-footer-copy{ text-align:right; color:#9aa2ab; font-size:.86rem; }
+@media(max-width:1024px){ .dc-footer-cols{ grid-template-columns:1fr 1fr; gap:34px; } }
+@media(max-width:640px){
+  .dc-footer-cols{ grid-template-columns:1fr; }
+  .dc-footer-bottom{ grid-template-columns:1fr; justify-items:center; text-align:center; }
+  .dc-footer-copy{ text-align:center; }
+  .dc-footer-cta{ flex-direction:column; align-items:flex-start; }
+}
+
+/* ============================================================================
+   2026-08-09 (pass 2) — "Empowering Enterprises" cards: convert the width
+   accordion into a uniform 3x2 equal-height grid so every card (incl. AI-First
+   & Data-Driven Marketing) is the SAME height and justified in every state.
+   Hover now lifts + brightens instead of resizing.
+   ============================================================================ */
+.dc-exp-row{ display:grid !important; grid-template-columns:repeat(3,1fr) !important; gap:22px !important; height:auto !important; }
+.dc-exp .dc-panel{ flex:none !important; height:340px !important; transition:transform .3s ease, box-shadow .3s ease; }
+.dc-exp .dc-panel:hover, .dc-exp .dc-panel:focus-visible{
+  flex-grow:0 !important; transform:translateY(-6px); box-shadow:0 34px 62px -30px rgba(0,0,0,.75);
+}
+.dc-exp .dc-panel:hover img, .dc-exp .dc-panel:focus-visible img{ transform:scale(1.06); filter:grayscale(0) brightness(.72) !important; }
+/* description stays 3 lines on hover so card height never changes */
+.dc-exp .dc-panel p, .dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{
+  -webkit-line-clamp:3 !important; min-height:4.6rem !important;
+}
+@media(min-width:781px) and (max-width:1080px){ .dc-exp-row{ grid-template-columns:repeat(2,1fr) !important; } }
+@media(max-width:780px){ .dc-exp-row{ grid-template-columns:1fr !important; } .dc-exp .dc-panel{ height:300px !important; } }
