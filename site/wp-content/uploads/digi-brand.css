@@ -1420,3 +1420,55 @@ body.dc-fx-in .page-wrapper, body.dc-fx-in .digi-main{ animation:dcFadeUp .7s .2
 /* Careers "What We Offer?" icons */
 .dc-offer-ico{ display:inline-grid; place-items:center; width:62px; height:62px; border-radius:16px; border:1.7px solid var(--dc-orange-300); color:var(--dc-orange-300); margin-bottom:18px; }
 .dc-offer-ico svg{ width:32px; height:32px; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ============================================================================
+   2026-08-10 (pass 5)
+   ============================================================================ */
+
+/* 1) Contact "Global Reach, Local Impact" office cards: fully white, legible */
+.digi-mapband .dc-office{ background:rgba(14,18,22,.40) !important; border:1px solid rgba(255,255,255,.24) !important; }
+.digi-mapband .dc-office h3, .digi-mapband .dc-office p{ color:#ffffff !important; text-shadow:0 1px 8px rgba(0,0,0,.55); }
+.digi-mapband .dc-office .tag{ color:var(--dc-orange-100) !important; }
+
+/* 2) "Aligning Capability" figure -> orange */
+.elementor-element-59b3a9f img{
+  filter:brightness(0) saturate(100%) invert(56%) sepia(63%) saturate(3102%) hue-rotate(360deg) brightness(99%) contrast(96%) !important;
+  opacity:1 !important;
+}
+
+/* 3) "Empowering Enterprises" -> equal-height justified GRID: every card's
+   icon, title and description sit at the same height across all 6 cards. */
+.dc-exp-row{ display:grid !important; grid-template-columns:repeat(3,1fr) !important; gap:20px !important; height:auto !important; align-items:stretch !important; }
+.dc-exp .dc-panel{ flex:none !important; height:auto !important; min-height:360px; transition:transform .3s ease, box-shadow .3s ease; }
+.dc-exp .dc-panel:hover, .dc-exp .dc-panel:focus-visible{ flex-grow:0 !important; transform:translateY(-6px) !important; box-shadow:0 34px 62px -30px rgba(0,0,0,.7); }
+.dc-exp .dc-glass{
+  opacity:1 !important;
+  background:linear-gradient(180deg, rgba(30,36,42,.52) 0%, rgba(19,24,28,.9) 100%) !important;
+  -webkit-backdrop-filter:blur(4px) saturate(1.05) !important; backdrop-filter:blur(4px) saturate(1.05) !important;
+}
+.dc-exp .dc-panel:hover .dc-glass, .dc-exp .dc-panel:focus-visible .dc-glass{
+  opacity:1 !important; -webkit-backdrop-filter:blur(3px) saturate(1.05) !important; backdrop-filter:blur(3px) saturate(1.05) !important;
+}
+.dc-exp .dc-panel:hover img, .dc-exp .dc-panel:focus-visible img{ transform:scale(1.05) !important; filter:none !important; }
+.dc-exp .dc-panel-in{ justify-content:flex-start !important; padding:26px 24px !important; }
+.dc-exp .dc-panel-ico{ margin:0 0 18px 0 !important; }
+.dc-exp .dc-panel-head{ display:block !important; min-height:0 !important; margin:0 !important; }
+.dc-exp .dc-panel .dc-panel-badge{ display:block !important; margin:0 0 8px 0 !important; }
+.dc-exp .dc-panel-head h3{ display:block !important; min-height:3.2rem !important; font-size:1.24rem !important; line-height:1.3 !important; color:#fff !important; }
+.dc-exp .dc-panel p{
+  display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:4 !important; overflow:hidden;
+  max-height:none !important; opacity:1 !important; margin:12px 0 0 !important; min-height:6.1rem !important;
+  color:#f4f6f8 !important; font-size:.98rem !important; line-height:1.55 !important;
+}
+.dc-exp .dc-panel:hover p, .dc-exp .dc-panel:focus-visible p{ -webkit-line-clamp:4 !important; max-height:none !important; opacity:1 !important; margin-top:12px !important; }
+@media(min-width:781px) and (max-width:1080px){ .dc-exp-row{ grid-template-columns:repeat(2,1fr) !important; } }
+@media(max-width:780px){ .dc-exp-row{ grid-template-columns:1fr !important; } .dc-exp .dc-panel{ min-height:300px; } }
+
+/* 4) "Transformation Across Complex Enterprise Environments" (Industries):
+   reserve title + description heights so all card content is justified. */
+.dc-industry .dc-card{ min-height:300px; justify-content:flex-end; }
+.dc-industry .dc-card .dc-card-title{ min-height:2.7rem; display:flex; align-items:flex-end; }
+.dc-industry .dc-card p{
+  display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden;
+  min-height:6.1rem; margin-top:10px;
+}
