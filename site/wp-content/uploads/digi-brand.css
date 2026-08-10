@@ -1681,3 +1681,17 @@ header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ align-items:str
    ============================================================================ */
 .dc-footer-col h4{ min-height:2.5em; line-height:1.32; }
 @media(max-width:640px){ .dc-footer-col h4{ min-height:0; } }
+
+/* ============================================================================
+   2026-08-10 (pass 13) — "Our Approach" (.dc-integrated) 4 cards: make the
+   card descriptions darker + slightly bold so they're clearly visible.
+   ============================================================================ */
+.dc-integrated .dc-diff-card p{ color:#2b3033 !important; font-weight:500 !important; }
+.dc-integrated .dc-diff-card h3{ color:#1f2427 !important; }
+
+/* ============================================================================
+   2026-08-10 (pass 14) — Industries cards: top-align titles so a 1-line title
+   (Industrial & Global Operations) lines up with a 2-line title (Consumer &
+   Omnichannel Enterprises) instead of dropping to its second line.
+   ============================================================================ */
+.dc-industry .dc-card .dc-card-title{ align-items:flex-start !important; }
