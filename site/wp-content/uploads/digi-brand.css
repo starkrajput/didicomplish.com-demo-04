@@ -1725,3 +1725,33 @@ header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ align-items:str
 .elementor-element-7691cc5 .elementor-button{ background:var(--dc-orange-300) !important; color:#ffffff !important; font-weight:700 !important; }
 .elementor-element-4235640 .elementor-button .elementor-button-text,
 .elementor-element-7691cc5 .elementor-button .elementor-button-text{ color:#ffffff !important; }
+
+/* ============================================================================
+   2026-08-10 (pass 17) — CTA buttons: force WHITE text in every state / on
+   every inner span (theme was recolouring an inner .vamtam-btn-text on hover).
+   ============================================================================ */
+.elementor-element-4235640 .elementor-button,
+.elementor-element-7691cc5 .elementor-button{
+  --vamtam-btn-text-color:#ffffff !important; --vamtam-btn-hover-text-color:#ffffff !important;
+}
+.elementor-element-4235640 .elementor-button,   .elementor-element-4235640 .elementor-button *,
+.elementor-element-4235640 .elementor-button:hover,   .elementor-element-4235640 .elementor-button:hover *,
+.elementor-element-4235640 .elementor-button:focus,   .elementor-element-4235640 .elementor-button:focus *,
+.elementor-element-7691cc5 .elementor-button,   .elementor-element-7691cc5 .elementor-button *,
+.elementor-element-7691cc5 .elementor-button:hover,   .elementor-element-7691cc5 .elementor-button:hover *,
+.elementor-element-7691cc5 .elementor-button:focus,   .elementor-element-7691cc5 .elementor-button:focus *{
+  color:#ffffff !important; -webkit-text-fill-color:#ffffff !important;
+}
+
+/* ============================================================================
+   2026-08-10 (pass 18) — CTA buttons: force white on the inner .vamtam-btn-text
+   span (color + -webkit-text-fill-color) in resting AND hover.
+   ============================================================================ */
+.elementor-element-4235640 .elementor-button .vamtam-btn-text,
+.elementor-element-4235640 .elementor-button:hover .vamtam-btn-text,
+.elementor-element-4235640 .elementor-button:focus .vamtam-btn-text,
+.elementor-element-7691cc5 .elementor-button .vamtam-btn-text,
+.elementor-element-7691cc5 .elementor-button:hover .vamtam-btn-text,
+.elementor-element-7691cc5 .elementor-button:focus .vamtam-btn-text{
+  color:#ffffff !important; -webkit-text-fill-color:#ffffff !important;
+}
