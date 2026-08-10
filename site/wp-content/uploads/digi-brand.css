@@ -1642,3 +1642,34 @@ header ul.sub-menu.digi-mega .dc-mega-col a:hover{ color:var(--dc-orange-300) !i
 .digi-mapband .digi-mapband-head h2 b{
   color:var(--dc-orange-300) !important; -webkit-text-fill-color:var(--dc-orange-300) !important;
 }
+
+/* ============================================================================
+   2026-08-10 (pass 11) — Solutions mega: justify every column (main headings +
+   sub-group headings on the same lines) + fill col-3 blank space with an image.
+   ============================================================================ */
+header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ align-items:stretch !important; }
+.dc-mega-col{ display:flex !important; flex-direction:column; }
+/* main heading: fixed height so 1-line & 2-line group names align across cols */
+.dc-mega-main{ min-height:58px !important; display:flex; align-items:flex-start; }
+/* each sub-group a fixed height so sub-headings line up across columns */
+.dc-mega-sub{ min-height:150px; }
+.dc-mega-sub-flat{ min-height:0; }
+/* col-3 feature image fills the remaining blank space */
+.dc-mega-col-last{ display:flex; flex-direction:column; }
+.dc-mega-feature{
+  position:relative; margin-top:20px; flex:1 1 auto; min-height:180px;
+  display:flex; border-radius:14px; overflow:hidden; text-decoration:none !important; background:#0f1417;
+}
+.dc-mega-feature-media{ position:absolute; inset:0; }
+.dc-mega-feature-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.dc-mega-feature:hover .dc-mega-feature-media img{ transform:scale(1.05); }
+.dc-mega-feature::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,20,24,.12) 0%, rgba(15,20,24,.86) 100%); }
+.dc-mega-feature-body{ position:relative; z-index:1; margin-top:auto; padding:20px; width:100%; }
+.dc-mega-feature-cap{ display:block; color:#fff; font-size:.94rem; font-weight:600; line-height:1.4; margin-bottom:8px; }
+.dc-mega-feature-link{ display:inline-flex; align-items:center; gap:8px; color:var(--dc-orange-100); font-weight:700; font-size:.82rem; letter-spacing:.02em; }
+.dc-mega-feature:hover .dc-mega-feature-link .arw{ transform:translateX(4px); transition:transform .2s ease; display:inline-block; }
+@media(max-width:1024px){
+  .dc-mega-main{ min-height:0 !important; }
+  .dc-mega-sub{ min-height:0; }
+  .dc-mega-feature{ min-height:150px; margin-top:14px; }
+}
