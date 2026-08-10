@@ -1755,3 +1755,10 @@ header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ align-items:str
 .elementor-element-7691cc5 .elementor-button:focus .vamtam-btn-text{
   color:#ffffff !important; -webkit-text-fill-color:#ffffff !important;
 }
+
+/* ============================================================================
+   2026-08-10 (pass 19) — "Our Approach" 4 cards: reserve 2 title lines so a
+   1-line title (Workforce Intelligence) leaves space below it and every card's
+   description starts on the same horizontal line (fully justified).
+   ============================================================================ */
+.dc-integrated .dc-diff-card h3{ min-height:3.1rem !important; align-items:flex-start !important; }
