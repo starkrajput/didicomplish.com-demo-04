@@ -1695,3 +1695,25 @@ header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ align-items:str
    Omnichannel Enterprises) instead of dropping to its second line.
    ============================================================================ */
 .dc-industry .dc-card .dc-card-title{ align-items:flex-start !important; }
+
+/* ============================================================================
+   2026-08-10 (pass 15) — "Build the Next Phase" CTA buttons (Schedule a
+   strategic discussion / Explore Our Solutions): orange, single line, equal
+   height (width extends to fit), hover -> pure black bg + white text.
+   ============================================================================ */
+.elementor-element-4235640 .elementor-button,
+.elementor-element-7691cc5 .elementor-button{
+  display:inline-flex !important; align-items:center; justify-content:center;
+  white-space:nowrap !important; width:auto !important; min-height:54px; padding:14px 34px !important;
+  background:var(--dc-orange-100) !important; border:0 !important; border-radius:10px !important;
+  color:#111316 !important; font-weight:600; box-shadow:none !important;
+  transition:background .22s ease, color .22s ease, transform .22s ease !important;
+}
+.elementor-element-4235640 .elementor-button .elementor-button-text,
+.elementor-element-7691cc5 .elementor-button .elementor-button-text{
+  color:#111316 !important; white-space:nowrap !important; --vamtam-underline-bg-color:transparent !important;
+}
+.elementor-element-4235640 .elementor-button:hover,
+.elementor-element-7691cc5 .elementor-button:hover{ background:#000000 !important; color:#ffffff !important; transform:translateY(-2px); }
+.elementor-element-4235640 .elementor-button:hover .elementor-button-text,
+.elementor-element-7691cc5 .elementor-button:hover .elementor-button-text{ color:#ffffff !important; }
