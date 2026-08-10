@@ -1673,3 +1673,11 @@ header ul.digi-mega-solutions .digi-mega-inner.digi-mega-groups{ align-items:str
   .dc-mega-sub{ min-height:0; }
   .dc-mega-feature{ min-height:150px; margin-top:14px; }
 }
+
+/* ============================================================================
+   2026-08-10 (pass 12) — Footer: reserve 2 lines for the column headings so a
+   1-line heading (INDUSTRIES) and 2-line headings (WORKFORCE INTELLIGENCE /
+   ENTERPRISE MODERNIZATION) push their first link to the SAME horizontal line.
+   ============================================================================ */
+.dc-footer-col h4{ min-height:2.5em; line-height:1.32; }
+@media(max-width:640px){ .dc-footer-col h4{ min-height:0; } }
